@@ -355,3 +355,28 @@
   opacity: 0.2 !important;
   cursor: not-allowed;
 }
+/* Убираем дефолтные фоны и рамки Splide */
+:global(.splide__arrow) {
+background: transparent;
+  border: none;
+  color: #000000; /* Чёрный цвет иконки */
+  opacity: 1;
+  padding: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+:global(.splide__arrow:hover) {
+background: transparent;
+  color: #000000;
+  opacity: 0.6;
+}
+
+:global(.splide__arrow:disabled) {
+opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* Изменение цвета заливки SVG при необходимости */
+:global(.splide__arrow svg path) {
+  fill: #000000;
+}
