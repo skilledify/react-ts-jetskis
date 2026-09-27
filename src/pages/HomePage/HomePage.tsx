@@ -1,3 +1,4 @@
+import Banner from "../../components/Banner/Banner"
 import BannerSection from "../../components/BannerSection/BannerSection"
 import Categories from "../../components/Categories/Categories"
 import Products from "../../components/Products/Products"
@@ -12,6 +13,8 @@ const HomePage = () => {
       <Search/>
       <Categories/>
       <Products />
+      <Banner/>
+
     </div>
   )
 }
