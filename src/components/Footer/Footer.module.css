@@ -1,0 +1,284 @@
+/* CSS-модуль компонента Footer */
+
+.footer {
+  background-color: #F0F0F4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footerTop {
+  padding-top: 43px;
+}
+
+.footerTopInner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footerTopItem {
+  margin-right: 30px;
+}
+
+.footerTopItem:first-child {
+  max-width: 295px;
+}
+
+.footerTopItem:nth-child(2) {
+  max-width: 141px;
+}
+
+.footerTopItem:last-child {
+  max-width: 210px;
+  margin-right: 76px;
+}
+
+.footerTopTitle {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #2F3035;
+  margin: 0;
+}
+
+/* Форма рассылки */
+.footerForm {
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerFormInput {
+  width: 185px;
+  padding: 0 12px;
+  line-height: 17px;
+  background-color: #FFFFFF;
+  border: none;
+  font-size: 14px;
+  color: #2F3035;
+  outline: none;
+}
+
+.footerFormInput::placeholder {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+}
+
+.footerFormBtn {
+  cursor: pointer;
+  padding: 10px 16px;
+  border: none;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 13px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background-color: #1C62CD;
+  color: #FFFFFF;
+  transition: background-color 0.2s ease;
+}
+
+.footerFormBtn:hover {
+  background-color: #154fb0;
+}
+
+/* Списки ссылок */
+.footerList {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.footerListItem a {
+  text-decoration: none;
+  color: #2F3035;
+  transition: color 0.2s ease;
+}
+
+.footerListItem a:hover {
+  color: #1C62CD;
+}
+
+/* Соцсети */
+.socialList {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.socialListItemLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialListItemImg {
+  display: block;
+}
+
+/* Нижняя часть футера */
+.footerBottom {
+  padding: 46px 0 22px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footerBottomLink {
+  line-height: 12px;
+  color: #48494D;
+  font-size: 10px;
+  margin: 0 40px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.footerBottomLink:hover {
+  text-decoration: underline;
+}
+
+/* ================= АДАПТИВ ================= */
+
+@media (max-width: 968px) {
+  .footerTopInner {
+    flex-wrap: wrap;
+  }
+
+  .footerTopItem {
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 940px) {
+  .footerTopInner {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .footerTopItem {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .footerTopTitle {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 540px) {
+  .footerTopItem {
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 2px solid #F9F9FC;
+  }
+
+  .footerTopItem:nth-child(2) {
+    max-width: 100%;
+  }
+
+  .footerTopItem:last-child {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footerBottomLink {
+    margin: 12px 0;
+  }
+
+  .footerTopSocial {
+    width: 100%;
+    border-bottom: none;
+    padding: 15px 0;
+  }
+
+  .socialList {
+    justify-content: center;
+  }
+
+  .footerList {
+    display: none;
+  }
+
+  .footerListOpen {
+    display: block;
+  }
+
+  .footerTopdrop {
+    font-size: 14px;
+    line-height: 18px;
+    color: #7F7F7F;
+    font-weight: 500;
+    padding: 15px 0;
+    cursor: pointer;
+    position: relative;
+    pointer-events: auto;
+  }
+
+  .footerTopdrop::after {
+    position: absolute;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%3C2F3035' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 0;
+    top: 21px;
+    width: 12px;
+    height: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .footerTopdropActive::after {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: 475px) {
+  .footerBottom {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .footerBottomLink {
+    margin-left: 0;
+    margin-bottom: 5px;
+  }
+
+  .footerTopNewslatter {
+    margin-right: auto;
+    margin-left: auto;
+    width: 290px;
+    text-align: center;
+  }
+
+  .footerTopSocial {
+    display: flex;
+    justify-content: center;
+  }
+}

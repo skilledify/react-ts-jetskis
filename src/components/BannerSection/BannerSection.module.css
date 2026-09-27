@@ -1,0 +1,294 @@
+/* BannerSection.module.css */
+
+.bannerSection {
+  margin-bottom: 40px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* === СЛАЙДЕР === */
+.slider {
+  max-width: 870px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  height: 380px; 
+}
+
+.sliderWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Трек слайдера */
+.sliderTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+/* Каждый отдельный слайд занимает строго 100% ширины контейнера */
+.sliderItem {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.sliderImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none; /* Запрещает перетаскивание картинки мышкой */
+}
+
+/* Стрелки навигации */
+.sliderBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 10px;
+  margin: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.sliderBtn:hover {
+  opacity: 0.7;
+}
+
+.sliderBtnPrev {
+  left: 20px;
+}
+
+.sliderBtnNext {
+  right: 20px;
+}
+
+/* Пагинация (точки) */
+.slickDots {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 5;
+}
+
+.slickDots button {
+  cursor: pointer;
+  padding: 0;
+  width: 11px;
+  height: 11px;
+  border: 1px solid #FFF;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.slickActive button {
+  background-color: #FFF;
+}
+
+/* === БЛОК АКЦИОННОГО ТОВАРА === */
+.saleItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 265px;
+  height: 380px;
+  text-align: center;
+  border: 1px solid #CDCDCD;
+  border-radius: 3px;
+  text-decoration: none;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.saleItemTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saleItemInfo {
+  color: #FFFFFF;
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: #1C62CD;
+  padding: 8px 20px;
+  align-self: flex-start;
+}
+
+.saleItemPrice {
+  text-align: right;
+  padding: 8px 10px 0 0;
+}
+
+.price {
+  position: relative;
+  font-family: 'Barlow', sans-serif;
+}
+
+.saleItemPriceNew {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 32px;
+  color: #1C62CD;
+  margin-right: 6px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.saleItemPriceNew::after {
+  content: "";
+  position: absolute;
+  background-image: var(--bg-icon-price);
+  right: 0;
+  width: 15px;
+  height: 18px;
+  top: 8px;
+}
+
+/* Старая цена (перечеркнутая) */
+.saleItemPriceOld {
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  display: inline-block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #C4C4C4;
+  padding: 2px 5px;
+  text-decoration: line-through;
+  background-image: var(--bg-old-line);
+  background-repeat: no-repeat;
+  margin-right: 10px;
+  position: relative;
+}
+
+.saleItemPriceOld::after {
+  content: "";
+  position: absolute;
+  background-image: var(--bg-icon-price-old);
+  background-repeat: no-repeat;
+  top: 5px;
+  width: 8px;
+  height: 10px;
+}
+
+.saleItemImg {
+  margin: 0 auto;
+  max-height: 130px;
+  object-fit: contain;
+}
+
+.saleItemTitle {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #2F3035;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.saleItemFooter {
+  background-color: #F0F0F4;
+  padding: 25px 20px;
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #2F3035;
+}
+
+.saleItemFooter span {
+  display: block;
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #1C62CD;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 1200px) {
+  .slider {
+    max-width: 600px;
+    height: 350px;
+  }
+  .saleItem {
+    height: 350px;
+  }
+}
+
+@media (max-width: 968px) {
+  .inner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slider {
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .saleItem {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+}
+
+/* Скрытие стрелок слайдера на экранах <= 640px */
+@media (max-width: 640px) {
+  .sliderBtn {
+    display: none;
+  }
+
+  .slider {
+    height: 220px;
+  }
+  
+  .slickDots {
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .slider {
+    height: 180px;
+  }
+}
