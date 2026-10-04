@@ -9,14 +9,14 @@ import CatalogPage from "./pages/CatalogPage/CatalogPage"
 import ProductCardPage from "./pages/ProductCardPage/ProductCardPage";
 import  NotFoundPage  from "./pages/NotFoundPage/NotFoundPage";
 
-// import ScrollToTop from "./components/ScrollToTop";
 
+// import ScrollToTop from "./components/ScrollToTop";
 
 
 const App: FC = () => {
   return (
     <>
-      <BrowserRouter basename="/react-ts-hydrocycles-store">
+      <BrowserRouter basename="/react-ts-jetskis">
         {/* <ScrollToTop/> */}
           <Routes>
         {/* Родительский роут с MainLayout */}

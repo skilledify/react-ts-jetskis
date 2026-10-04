@@ -1,0 +1,798 @@
+.catalog {
+	margin-bottom: 100px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 30px;
+	line-height: 36px;
+	font-family: 'SF Pro Display', sans-serif;
+	margin-bottom: 26px;
+}
+
+/* ---------- Top filter bar ---------- */
+
+.filter {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+
+.filterItems {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.filterItems button {
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 17px;
+	opacity: 0.7;
+	background: #f0f0f4;
+	border-radius: 3px;
+	border: none;
+	padding: 5px 22px;
+}
+
+.filterItems button + button {
+	margin-left: 8px;
+}
+
+.filterBtn {
+	display: flex;
+	align-items: center;
+}
+
+.filterBtn .viewBtn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	opacity: 0.3;
+	outline: none;
+}
+
+.filterBtn .viewBtn + .viewBtn {
+	margin-left: 10px;
+}
+
+.filterBtn .viewBtnActive {
+	opacity: 1;
+}
+
+.selectItem {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	color: #2f3035;
+	margin-right: 34px;
+	padding: 7px 10px 7px 20px;
+	border: 1px solid #d7d9df;
+	background-color: transparent;
+}
+
+/* ---------- Layout ---------- */
+
+.inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.aside {
+	width: 290px;
+	margin-right: 10px;
+	flex-shrink: 0;
+}
+
+.asideBtn {
+	display: none;
+}
+
+.innerList {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	flex-wrap: wrap;
+	flex: 1;
+	align-content: flex-start;
+}
+
+/* ---------- Tabs ---------- */
+
+.tabs {
+	display: flex;
+	justify-content: space-between;
+}
+
+.tab {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 19px;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	color: #c4c4c4;
+	text-decoration: none;
+}
+
+.tab.tabActive {
+	color: #2f3035;
+	font-weight: 700;
+}
+
+.tab.tabActive span {
+	display: inline-block;
+	padding-bottom: 7px;
+	color: #2f3035;
+	border-bottom: 2px solid #1c62cd;
+	font-weight: 700;
+}
+
+/* ---------- Filter form ---------- */
+
+.list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.itemDrop {
+	margin: 40px 0;
+}
+
+.itemTitle {
+	display: block;
+	width: 100%;
+	margin: 0;
+	background: none;
+	border: none;
+	text-align: left;
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	color: #2f3035;
+	padding-left: 26px;
+}
+
+.drop {
+	cursor: pointer;
+	position: relative;
+}
+
+.drop::before {
+	content: '';
+	position: absolute;
+	background-image: var(--icon-arrow-down);
+	background-repeat: no-repeat;
+	left: 0;
+	bottom: 5px;
+	width: 12px;
+	height: 8px;
+	transform: rotate(0deg);
+}
+
+.dropActive::before {
+	transform: rotate(180deg);
+}
+
+.drop::before {
+	transition: transform 0.3s ease;
+}
+
+/* Accordion panel: animates height 0 -> auto */
+.panel {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+}
+
+.panelOpen {
+	grid-template-rows: 1fr;
+}
+
+.panelInner {
+	min-height: 0;
+	overflow: hidden;
+}
+
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 10px;
+}
+
+.contentRadio {
+	flex-wrap: nowrap;
+}
+
+.contentBox {
+	width: 50%;
+	margin-bottom: 10px;
+}
+
+.contentLabel {
+	font-size: 14px;
+	line-height: 17px;
+	cursor: pointer;
+}
+
+/* Custom checkbox / radio (replaces jQuery Form Styler) */
+
+.control {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 14px;
+	height: 14px;
+	background: #ffffff;
+	border: 1px solid #c4c4c4;
+	border-radius: 1px;
+	margin: 0 8px 0 0;
+	vertical-align: -1px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.control:checked {
+	background-color: #1c62cd;
+	border-color: #1c62cd;
+}
+
+.control[type='checkbox']:checked {
+	background-image: var(--icon-checked);
+	background-size: 8px 6px;
+}
+
+/* ---------- Price range ---------- */
+
+.range {
+	position: relative;
+	width: 100%;
+	height: 70px;
+}
+
+.rangeLine {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: #e0e0e0;
+}
+
+.rangeBar {
+	position: absolute;
+	top: 24px;
+	height: 3px;
+	background-color: #1c62cd;
+}
+
+.rangeInput {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	width: 100%;
+	height: 12px;
+	margin: 0;
+	background: transparent;
+	pointer-events: none;
+	appearance: none;
+	-webkit-appearance: none;
+}
+
+.rangeInput::-webkit-slider-runnable-track {
+	background: transparent;
+	height: 12px;
+}
+
+.rangeInput::-moz-range-track {
+	background: transparent;
+	height: 12px;
+}
+
+.rangeInput::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	pointer-events: auto;
+	width: 8px;
+	height: 8px;
+	margin-top: 2px;
+	border: none;
+	border-radius: 50%;
+	background-color: #1c62cd;
+	cursor: pointer;
+}
+
+.rangeInput::-moz-range-thumb {
+	pointer-events: auto;
+	width: 8px;
+	height: 8px;
+	border: none;
+	border-radius: 50%;
+	background-color: #1c62cd;
+	cursor: pointer;
+}
+
+.rangeLabels {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Barlow', sans-serif;
+	font-size: 14px;
+	line-height: 17px;
+	color: #2f3035;
+}
+
+.rangeLabels span {
+	position: relative;
+	padding-left: 27px;
+	text-decoration: underline;
+}
+
+.rangeLabels span::before {
+	content: attr(data-prefix);
+	position: absolute;
+	left: 0;
+	font-family: 'SF Pro Display', sans-serif;
+	color: #c4c4c4;
+	text-decoration: none;
+}
+
+/* ---------- Selects list ---------- */
+
+.itemList {
+	margin: 46px 0 40px;
+	list-style: none;
+}
+
+.listRow {
+	border-bottom: 2px solid #c4c4c4;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 0;
+}
+
+.listRow .listTitle {
+	margin: 0;
+}
+
+.listTitle {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	color: #2f3035;
+	padding-left: 26px;
+}
+
+.listSelect {
+	height: 32px;
+	min-width: 90px;
+	padding: 0 30px 0 12px;
+	border: 1px solid #d7d9df;
+	border-radius: 3px;
+	background-color: transparent;
+	background-image: var(--icon-arrow-down);
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	appearance: none;
+	-webkit-appearance: none;
+	font-family: 'Barlow', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 25px;
+	color: #48494d;
+	cursor: pointer;
+}
+
+/* ---------- Show more / search ---------- */
+
+.more {
+	width: 100%;
+}
+
+.moreBtn {
+	cursor: pointer;
+	color: #1c62cd;
+	border: none;
+	border-bottom: 1px solid #1c62cd;
+	background-color: transparent;
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	text-decoration-line: underline;
+	padding: 0;
+}
+
+.search {
+	width: 100%;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding: 8px 20px;
+	color: #2f3035;
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.search::placeholder {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14px;
+	color: #bdbec2;
+}
+
+/* ---------- Badge checkboxes (SALE / NEW / HIT / ДИЛЕР) ---------- */
+
+.badgeGroup .content {
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+.badgeGroup .contentBox {
+	width: auto;
+}
+
+.badgeGroup .contentLabel {
+	position: relative;
+	display: block;
+	height: 25px;
+	width: 63px;
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 14px;
+	letter-spacing: 0.07em;
+	color: #c4c4c4;
+}
+
+.badgeGroup .control {
+	display: block;
+	position: absolute;
+	inset: 0;
+	margin: 0;
+	width: 63px;
+	height: 25px;
+	border: none;
+	background-color: #f0f0f4;
+}
+
+.badgeGroup .control:checked {
+	background-color: #1c62cd;
+	background-image: none;
+}
+
+.badgeGroup .control:checked ~ .badgeText {
+	color: #ffffff;
+}
+
+.badgeText {
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 5;
+	pointer-events: none;
+}
+
+/* ---------- Buttons ---------- */
+
+.itemBtn {
+	text-align: center;
+}
+
+.btnChoose {
+	background: #f0f0f4;
+	padding: 16px 85px;
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 18px;
+	text-align: center;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #bdbec2;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+
+.btnChooseActive {
+	background: #1c62cd;
+	color: #ffffff;
+}
+
+.extra {
+	font-size: 13px;
+	line-height: 16px;
+	position: relative;
+	padding-right: 29px;
+	display: inline-block;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.extra::after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 4px;
+	width: 12px;
+	height: 8px;
+	background-image: var(--icon-arrow-down);
+	background-repeat: no-repeat;
+}
+
+.extraActive::after {
+	transform: rotate(180deg);
+}
+
+.extraContent {
+	margin-bottom: 15px;
+}
+
+.btnReset {
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	border-bottom: 1px solid #c4c4c4;
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 16px;
+	color: #c4c4c4;
+	cursor: pointer;
+}
+
+/* ---------- Product card ---------- */
+
+.productWrapper {
+	position: relative;
+	flex: 0 0 calc((100% - 60px) / 3);
+	max-width: calc((100% - 60px) / 3);
+}
+
+.productWrapperList {
+	flex: 0 0 100%;
+	max-width: 100%;
+	width: 100%;
+}
+
+.productWrapperList .hoverText {
+	display: inline-block;
+	left: 50px;
+}
+
+.favoriteBtn {
+	width: 24px;
+	height: 24px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 2;
+}
+
+.favoriteBtn::before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: var(--icon-heart) no-repeat center center;
+	background-size: contain;
+	transition: all 0.3s ease;
+}
+
+.favoriteBtnActive::before {
+	background: var(--icon-heart-filled) no-repeat center center;
+	background-size: contain;
+}
+
+.productBasket {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 2;
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.productBasket img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.notifyLink {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 3;
+	padding: 12px;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	background-color: #1c62cd;
+	text-decoration: none;
+}
+
+.productWrapper:hover .notifyLink {
+	display: block;
+}
+
+.productItem {
+	position: relative;
+	display: block;
+	padding: 20px;
+	color: #2f3035;
+	text-decoration: none;
+	background: #ffffff;
+	border: 1px solid #f0f0f4;
+	height: 100%;
+}
+
+.hoverText {
+	display: none;
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 12px;
+	color: #c4c4c4;
+}
+
+.productItem:hover .hoverText {
+	display: block;
+}
+
+.productImg {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.productTitle {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	margin-bottom: 10px;
+}
+
+.productPrice {
+	font-family: 'SF Pro Display', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	margin-bottom: 8px;
+}
+
+.notifyText {
+	font-size: 13px;
+	line-height: 16px;
+	color: #c4c4c4;
+}
+
+/* ---------- Pagination ---------- */
+
+.pagination {
+	margin-top: 50px;
+}
+
+.paginationList {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.paginationItem a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 36px;
+	height: 36px;
+	padding: 0 8px;
+	font-size: 16px;
+	color: #2f3035;
+	text-decoration: none;
+	border: 1px solid #f0f0f4;
+}
+
+.paginationItemActive a {
+	color: #ffffff;
+	background-color: #1c62cd;
+	border-color: #1c62cd;
+}
+
+/* ================= RESPONSIVE (desktop first) ================= */
+
+@media (max-width: 1200px) {
+	.innerList {
+		justify-content: space-around;
+	}
+}
+
+@media (max-width: 968px) {
+	.filterItemsInner {
+		overflow-x: scroll;
+	}
+
+	.filterItems {
+		width: 1000px;
+	}
+}
+
+@media (max-width: 940px) {
+	.viewBtn {
+		display: none;
+	}
+
+	.filterBtn {
+		margin-top: 30px;
+	}
+
+	.filter {
+		display: block;
+	}
+}
+
+@media (max-width: 640px) {
+	.inner {
+		flex-wrap: wrap;
+	}
+
+	.aside {
+		width: 100%;
+		margin-right: 0;
+		display: none;
+	}
+
+	.asideOpen {
+		display: block;
+	}
+
+	.asideBtn {
+		display: block;
+		text-transform: uppercase;
+		font-weight: 700;
+		text-align: center;
+		padding: 15px 0;
+		width: 100%;
+		color: white;
+		background-color: #1c62cd;
+		margin-bottom: 30px;
+		cursor: pointer;
+	}
+
+	.productWrapper {
+		margin: 0 auto;
+		flex: 0 0 100%;
+		max-width: 320px;
+	}
+}

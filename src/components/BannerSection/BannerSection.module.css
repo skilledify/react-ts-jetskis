@@ -177,7 +177,7 @@
 
 /* Старая цена (перечеркнутая) */
 .saleItemPriceOld {
-  font-family: 'Barlow', sans-serif;
+font-family: 'Barlow', sans-serif;
   font-style: normal;
   display: inline-block;
   font-weight: 400;
@@ -185,19 +185,41 @@
   line-height: 17px;
   color: #C4C4C4;
   padding: 2px 5px;
-  text-decoration: line-through;
-  background-image: var(--bg-old-line);
-  background-repeat: no-repeat;
   margin-right: 10px;
   position: relative;
+  /* Убираем стандартное горизонтальное перечеркивание */
+  text-decoration: none;
 }
-
+/* Косая черта перечеркивания цены */
+.saleItemPriceOld::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 1px;
+  background-color: #C4C4C4; 
+  transform: rotate(-12deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+/* .saleItemPriceOld::after {
+  content: "";
+  position: absolute;
+  background-image: var(--bg-icon-price-old);
+  background-repeat: no-repeat;
+  top: 5px;
+  width: 8px;
+  height: 10px;
+} */
+ /* Иконка валюты/рубля (остается без изменений) */
 .saleItemPriceOld::after {
   content: "";
   position: absolute;
   background-image: var(--bg-icon-price-old);
   background-repeat: no-repeat;
   top: 5px;
+  right: -8px;
   width: 8px;
   height: 10px;
 }

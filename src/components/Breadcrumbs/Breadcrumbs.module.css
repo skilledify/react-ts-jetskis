@@ -1,0 +1,87 @@
+.breadcrumbs {
+  margin-bottom: 40px;
+}
+
+.inner {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Скрываем стандартный полосу прокрутки для чистоты UI */
+  scrollbar-width: none; 
+}
+
+.inner::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.listItem {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #c4c4c4;
+
+  display: inline-flex;
+  align-items: center;
+  padding-right: 16px;
+  margin-right: 10px;
+  position: relative;
+}
+/* Разделитель между крошками (с исправленной кодировкой # в SVG) */
+.listItem::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 9px;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='9' viewBox='0 0 6 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 4.5L1 8' stroke='%23C4C4C4' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Скрываем стрелку у последнего элемента */
+.listItem:last-child {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.listItem:last-child::after {
+  display: none;
+}
+
+.listLink {
+  color: #c4c4c4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.listLink:hover {
+  color: #1c62cd;
+}
+
+/* Активный/последний элемент в цепочке */
+.active {
+  color: #2f3035;
+  font-weight: 500;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Адаптивные правила для планшетов и мобильных */
+@media (max-width: 968px) {
+  .breadcrumbs {
+    margin-bottom: 25px;
+  }
+}

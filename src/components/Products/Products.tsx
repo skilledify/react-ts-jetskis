@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-
+import '@splidejs/splide/css';
 import styles from './Products.module.css';
 
+// Импорт изображений товаров
+import productImg1 from '../../assets/images/content/product-1.png';
+import productImg2 from '../../assets/images/content/product-2.png';
+import productImg3 from '../../assets/images/content/product-3.png';
+import productImg4 from '../../assets/images/content/product-4.png';
+
+// Импорт иконок/SVG при необходимости
+import basketIcon from '../../assets/images/basket-white.svg';
 import heartOutlineIcon from '../../assets/images/icon-heart-outline.svg';
 import heartFilledIcon from '../../assets/images/icon-heart-filled.svg';
-import basketWhiteIcon from '../../assets/images/basket-white.svg';
-import product1Img from '../../assets/images/content/product-1.png';
-import product2Img from '../../assets/images/content/product-2.png';
-import product3Img from '../../assets/images/content/product-3.png';
-import product4Img from '../../assets/images/content/product-4.png';
 
-interface ProductItem {
+interface Product {
   id: number;
   title: string;
   price: string;
-  imgSrc: string;
+  img: string;
   isSale?: boolean;
   inStock: boolean;
 }
 
-const TABS = [
+interface Tab {
+  id: string;
+  label: string;
+}
+
+const TABS: Tab[] = [
   { id: 'products-tab-1', label: 'запчасти' },
   { id: 'products-tab-2', label: 'моторы' },
   { id: 'products-tab-3', label: 'шины' },
@@ -29,19 +37,20 @@ const TABS = [
   { id: 'products-tab-6', label: 'аксессуары' },
 ];
 
-const PRODUCTS_DATA: ProductItem[] = [
+const PRODUCTS_DATA: Product[] = [
   {
     id: 1,
     title: 'Водонепроницаемый Рюкзак',
     price: '9 800 ₽',
-    imgSrc: product1Img,
+    img: productImg1,
+    isSale: false,
     inStock: true,
   },
   {
     id: 2,
     title: "Спасательный жилет BRP Men's Airflow PFD",
     price: '6 900 ₽',
-    imgSrc: product2Img,
+    img: productImg2,
     isSale: true,
     inStock: true,
   },
@@ -49,14 +58,15 @@ const PRODUCTS_DATA: ProductItem[] = [
     id: 3,
     title: 'BRP Audio-Premium System',
     price: '68 000 ₽',
-    imgSrc: product3Img,
+    img: productImg3,
+    isSale: false,
     inStock: true,
   },
   {
     id: 4,
     title: 'Спасательное снаряжение',
     price: '9 800 ₽',
-    imgSrc: product4Img,
+    img: productImg4,
     isSale: true,
     inStock: false,
   },
@@ -64,14 +74,15 @@ const PRODUCTS_DATA: ProductItem[] = [
     id: 5,
     title: 'Водонепроницаемый Рюкзак',
     price: '9 800 ₽',
-    imgSrc: product1Img,
+    img: productImg1,
+    isSale: false,
     inStock: true,
   },
   {
     id: 6,
     title: "Спасательный жилет BRP Men's Airflow PFD",
     price: '6 900 ₽',
-    imgSrc: product2Img,
+    img: productImg2,
     isSale: true,
     inStock: true,
   },
@@ -79,49 +90,31 @@ const PRODUCTS_DATA: ProductItem[] = [
 
 export const Products: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('products-tab-1');
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useState<Record<number, boolean>>({});
 
-  const handleToggleFavorite = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+  const toggleFavorite = (id: number) => {
+    setFavorites((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
   };
-
-  const renderArrowSvg = (isPrev = false) => (
-    <svg
-      width="16"
-      height="29"
-      viewBox="0 0 16 29"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{
-        transform: isPrev ? 'none' : 'scaleX(-1)',
-        display: 'block',
-      }}
-    >
-      <path
-        d="M1.9673 14.1924L14.9422 1.37269C15.2613 1.05741 15.2613 0.551755 14.9422 0.236466C14.6231 -0.0788221 14.1113 -0.0788221 13.7922 0.236466L0.239328 13.6273C-0.0797759 13.9426 -0.0797759 14.4482 0.239328 14.7635L13.7922 28.1484C13.9487 28.3031 14.1595 28.3864 14.3642 28.3864C14.5689 28.3864 14.7796 28.309 14.9362 28.1484C15.2553 27.8331 15.2553 27.3275 14.9362 27.0122L1.9673 14.1924Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
 
   return (
     <section className={styles.products}>
-      <div className={styles.container}>
+      <div className="container">
         <div className={styles.products__inner}>
           <h2 className={styles.products__title}>Популярные товары</h2>
 
-          <div className={styles['tabs-wrapper']}>
-            <div className={`${styles.tabs} ${styles.products__tabs} ${styles['mobile-overflow']}`}>
+          <div className={styles["tabs-wrapper"]}>
+            <div
+              className={`${styles.tabs} ${styles.products__tabs} ${styles["mobile-overflow"]}`}
+            >
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
-                  className={`${styles.tab} ${styles.products__tab} ${
-                    activeTab === tab.id ? styles['tab--active'] : ''
+                  className={`${styles.products__tab} ${
+                    activeTab === tab.id ? styles["products__tab--active"] : ""
                   }`}
                   onClick={() => setActiveTab(tab.id)}
                 >
@@ -131,128 +124,121 @@ export const Products: React.FC = () => {
             </div>
           </div>
 
-          <div className={`${styles['tabs-container']} ${styles.products__container}`}>
+          <div
+            className={`${styles["tabs-container"]} ${styles.products__container}`}
+          >
             {TABS.map((tab) => (
               <div
                 key={tab.id}
-                className={`${styles['tabs-content']} ${styles.products__content} ${
-                  activeTab === tab.id ? styles['tabs-content--active'] : ''
+                className={`${styles["tabs-content"]} ${styles.products__content} ${
+                  activeTab === tab.id ? styles["tabs-content--active"] : ""
                 }`}
+                id={tab.id}
               >
                 {activeTab === tab.id && (
                   <Splide
-                    hasTrack={false}
                     options={{
-                      type: 'slide',
                       perPage: 4,
-                      perMove: 1,
-                      gap: '30px',
+                      gap: "30px",
                       pagination: false,
-                      arrows: true,
-                      speed: 500,
-                      easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
-                      drag: true,
+                      padding: { right: "2px", left: "2px" }, // Запас 2px, чтобы border не срезался по краям
                       breakpoints: {
-                        1200: { perPage: 3 },
+                        1300: { perPage: 3 },
                         968: { perPage: 2 },
-                        640: { perPage: 1 },
+                        576: { perPage: 1 },
                       },
                     }}
                     aria-label="products-slider"
                   >
-                    <div className="splide__track">
-                      <ul className="splide__list">
-                        {PRODUCTS_DATA.map((product) => {
-                          const isFav = favorites.includes(product.id);
-                          return (
-                            <SplideSlide key={product.id} className="splide__slide">
-                              <div className={styles['product-slider__item']}>
-                                <div
-                                  className={`${styles['product-item__wrapper']} ${
-                                    !product.inStock ? styles['product-item__not-available'] : ''
-                                  }`}
+                    {PRODUCTS_DATA.map((product) => {
+                      const isFav = !!favorites[product.id];
+                      return (
+                        <SplideSlide key={product.id}>
+                          <div className={styles["product-slider__item"]}>
+                            <div
+                              className={`${styles["product-item__wrapper"]} ${
+                                !product.inStock
+                                  ? styles["product-item__not-available"]
+                                  : ""
+                              }`}
+                            >
+                              <button
+                                type="button"
+                                className={`${styles["product-item__favorite"]} ${styles["favorite-btn"]}`}
+                                onClick={() => toggleFavorite(product.id)}
+                                aria-label="Добавить в избранное"
+                              >
+                                <img
+                                  src={
+                                    isFav ? heartFilledIcon : heartOutlineIcon
+                                  }
+                                  alt="Избранное"
+                                />
+                              </button>
+                              {product.inStock && (
+                                <button
+                                  type="button"
+                                  className={styles["product-item__basket"]}
+                                  aria-label="Добавить в корзину"
                                 >
-                                  <button
-                                    type="button"
-                                    className={`${styles['product-item__favorite']} ${
-                                      isFav ? styles['product-item__favorite--active'] : ''
-                                    }`}
-                                    onClick={(e) => handleToggleFavorite(e, product.id)}
-                                    aria-label="Добавить в избранное"
+                                  <img src={basketIcon} alt="" />
+                                </button>
+                              )}
+
+                              {!product.inStock && (
+                                <a
+                                  className={
+                                    styles["product-item__notify-link"]
+                                  }
+                                  href="#"
+                                >
+                                  <span>Сообщить о поступлении</span>
+                                </a>
+                              )}
+
+                              <a
+                                className={`${styles["product-item"]} ${
+                                  product.isSale
+                                    ? styles["product-item--sale"]
+                                    : ""
+                                }`}
+                                href="#"
+                              >
+                                <p
+                                  className={styles["product-item__hover-text"]}
+                                >
+                                  посмотреть товар
+                                </p>
+                                <img
+                                  className={styles["product-item__img"]}
+                                  src={product.img}
+                                  alt={product.title}
+                                />
+                                <h4 className={styles["product-item__title"]}>
+                                  {product.title}
+                                </h4>
+
+                                {product.inStock ? (
+                                  <p
+                                    className={`${styles.price} ${styles["product-item__price"]}`}
                                   >
-                                    <img
-                                      src={isFav ? heartFilledIcon : heartOutlineIcon}
-                                      alt="Избранное"
-                                      className={styles['favorite-icon']}
-                                    />
-                                  </button>
-
-                                  <a
-                                    className={`${styles['product-item']} ${
-                                      product.isSale ? styles['product-item--sale'] : ''
-                                    }`}
-                                    href="#"
+                                    {product.price}
+                                  </p>
+                                ) : (
+                                  <p
+                                    className={
+                                      styles["product-item__notify-text"]
+                                    }
                                   >
-                                    <p className={styles['product-item__hover-text']}>посмотреть товар</p>
-
-                                    <img
-                                      className={styles['product-item__img']}
-                                      src={product.imgSrc}
-                                      alt={product.title}
-                                      draggable={false}
-                                    />
-
-                                    <h4 className={styles['product-item__title']}>{product.title}</h4>
-
-                                    {product.inStock ? (
-                                      <p className={`${styles.price} ${styles['product-item__price']}`}>
-                                        {product.price}
-                                      </p>
-                                    ) : (
-                                      <div className={styles['product-item__notify-box']}>
-                                        <p className={styles['product-item__notify-text']}>
-                                          нет в наличии
-                                        </p>
-                                        <span className={styles['product-item__notify-link']}>
-                                          Сообщить о поступлении
-                                        </span>
-                                      </div>
-                                    )}
-                                  </a>
-
-                                  {product.inStock && (
-                                    <button
-                                      type="button"
-                                      className={styles['product-item__basket']}
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                      }}
-                                      aria-label="Добавить в корзину"
-                                    >
-                                      <img
-                                        src={basketWhiteIcon}
-                                        alt="Корзина"
-                                        className={styles['basket-icon']}
-                                      />
-                                    </button>
-                                  )}
-                                </div>
-                              </div>
-                            </SplideSlide>
-                          );
-                        })}
-                      </ul>
-                    </div>
-
-                    <div className="splide__arrows">
-                      <button className="splide__arrow splide__arrow--prev" type="button">
-                        {renderArrowSvg(true)}
-                      </button>
-                      <button className="splide__arrow splide__arrow--next" type="button">
-                        {renderArrowSvg(false)}
-                      </button>
-                    </div>
+                                    нет в наличии
+                                  </p>
+                                )}
+                              </a>
+                            </div>
+                          </div>
+                        </SplideSlide>
+                      );
+                    })}
                   </Splide>
                 )}
               </div>
@@ -260,7 +246,7 @@ export const Products: React.FC = () => {
           </div>
 
           <div className={styles.products__more}>
-            <a className={styles['products__more-link']} href="#">
+            <a className={styles["products__more-link"]} href="#">
               Показать ещё
             </a>
           </div>
@@ -269,5 +255,3 @@ export const Products: React.FC = () => {
     </section>
   );
 };
-
-export default Products;

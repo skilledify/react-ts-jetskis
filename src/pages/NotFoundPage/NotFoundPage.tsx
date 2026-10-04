@@ -47,7 +47,7 @@ export const NotFoundPage: React.FC = () => {
         </p>
 
         <div className={styles.actions}>
-          <a href="/react-ts-hydrocycles-store" className={styles.btnPrimary}>
+          <a href="/react-ts-jetskis" className={styles.btnPrimary}>
             На главную
           </a>
           <button 

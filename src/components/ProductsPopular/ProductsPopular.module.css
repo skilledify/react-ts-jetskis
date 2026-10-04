@@ -1,0 +1,341 @@
+/* Основная секция и вкладки */
+.products {
+  margin-bottom: 86px;
+}
+
+.productsTitle {
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #2F3035;
+  margin-bottom: 25px;
+}
+
+.tabsWrapper {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.tabsWrapperNoScroll {
+  overflow: hidden;
+}
+
+.mobileOverflow {
+  width: 1000px;
+}
+
+.productsTabs {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 25px;
+}
+
+.productsTab {
+  padding-bottom: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  color: #2F3035;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.productsTab:hover {
+  color: #1C62CD;
+}
+
+.tabActive {
+  border-bottom: 2px solid #1C62CD;
+  font-weight: 700;
+}
+
+.productsContainer {
+  margin-bottom: 35px;
+}
+
+.productsContent {
+  display: none;
+}
+
+.tabsContentActive {
+  display: block;
+}
+
+/* Слайдер и карточки */
+.productSlider {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.productSliderItem {
+  display: flex;
+  justify-content: center;
+}
+
+.productItemWrapper {
+  position: relative;
+  width: 271px;
+  transition: all 0.5s;
+}
+
+.productItem {
+  position: relative;
+  border: 1px solid #CDCDCD;
+  border-radius: 3px;
+  min-height: 400px;
+  text-align: center;
+  padding: 52px 20px 31px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #1C62CD;
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  background-color: #fff;
+}
+
+.productItem:hover {
+  background: #FFFFFF;
+  box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+  border-radius: 3px;
+}
+
+.productItem:hover .productItemTitle,
+.productItem:hover .productItemPrice {
+  color: #1C62CD;
+}
+
+.productItemFavorite {
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 19px;
+  width: 24px;
+  height: 22px;
+  border: none;
+  background-color: transparent;
+  z-index: 5;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+}
+
+.productItemFavoriteActive {
+  cursor: pointer;
+}
+
+.productItemBasket {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 60px;
+  height: 40px;
+  color: #FFFFFF;
+  background-color: #1C62CD;
+  border-radius: 10px 0px 0px 0px;
+  border: none;
+  z-index: 5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productItemBasket img {
+  width: 30px;
+  height: 23px;
+}
+
+.productItemImg {
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.productItemTitle {
+  font-family: "SF Pro Display", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #2F3035;
+  max-width: 230px;
+  padding: 14px 0 25px;
+  min-height: 44px;
+  margin: 0 auto;
+}
+
+.productItemPrice {
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #2F3035;
+  margin: 0;
+}
+
+.productItemHoverText {
+  padding: 18px 21px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+  opacity: 0;
+  white-space: nowrap;
+  color: #2F3035;
+  margin: 0;
+  pointer-events: none;
+}
+
+.productItem:hover .productItemHoverText {
+  opacity: 1;
+}
+
+/* Флаг SALE */
+.productItemSale::before {
+  content: "SALE";
+  position: absolute;
+  padding: 8px 15px;
+  background-color: #1C62CD;
+  left: 0;
+  top: 0;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.07em;
+  z-index: 2;
+}
+
+/* Состояние "Нет в наличии" */
+.productItemNotAvailable .productItemPrice {
+  display: none;
+}
+
+.productItemNotifyText {
+  display: none;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: center;
+  margin-bottom: 13px;
+  color: rgb(47, 48, 53);
+  font-family: "SF Pro Display", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0%;
+}
+
+.productItemNotAvailable .productItemNotifyText {
+  display: block;
+}
+
+.productItemNotAvailable .productItemBasket {
+  display: none;
+}
+
+.productItem:hover .productItemNotifyText {
+  color: #2F3035;
+}
+
+.productItemNotifyLink {
+  display: none;
+}
+
+.productItemNotAvailable .productItemNotifyLink {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  color: #1C62CD;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+  z-index: 5;
+}
+
+.productItemNotAvailable .productItemNotifyLink span {
+  border-bottom: 1px solid #1C62CD;
+}
+
+.productItemNotAvailable .productItemTitle {
+  padding-bottom: 13px;
+}
+
+/* Кнопка "Показать еще" */
+.productsMore {
+  text-align: center;
+}
+
+.productsMoreLink {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2F3035;
+  padding: 17px 43px;
+  background-color: #F0F0F4;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Кастомные стрелки слайдера */
+.arrowCustom {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Медиазапросы */
+@media (max-width: 1300px) {
+  .productsMore {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 968px) {
+  .tabsWrapper {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .productItemWrapper {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .productsTitle {
+    font-size: 22px;
+  }
+}

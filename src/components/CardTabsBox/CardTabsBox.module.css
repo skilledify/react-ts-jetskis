@@ -1,0 +1,247 @@
+/* CardTabsBox.module.css */
+
+.cardTabsbox {
+  margin-bottom: 100px;
+}
+
+.cardTabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f0f0f4;
+  padding: 22px 0;
+  margin-bottom: 50px;
+}
+
+.cardTab {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2f3035;
+  opacity: 0.6;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 0 5px 0;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.cardTab.tabActive {
+  color: #2f3035;
+  opacity: 1;
+  border-bottom: 1px solid #1c62cd;
+}
+
+.cardTabsContainer {
+  width: 100%;
+}
+
+.cardTabsContent {
+  display: none;
+}
+
+.cardTabsContent.tabsContentActive {
+  display: block;
+  padding-left: 38px;
+}
+
+.cardTopLine {
+  margin-bottom: 10px;
+}
+
+.cardForm {
+  position: relative;
+}
+
+.cardFormLabelsearch {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: rgba(47, 48, 53, 0.7);
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.cardFormInputsearch {
+  background: #f0f0f4;
+  border-radius: 3px;
+  padding: 8px 37px 8px 17px;
+  border: none;
+  margin-right: 100px;
+  outline: none;
+}
+
+.cardFormLabelpickup {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  color: rgba(47, 48, 53, 0.7);
+  margin-left: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.cardFormInputpickup {
+  margin-left: 54px;
+}
+
+.cardListItemtitle {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2f3035;
+}
+
+.cardListItem {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(47, 48, 53, 0.1);
+  display: flex;
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(47, 48, 53, 0.7);
+}
+
+.cardListAddress {
+  width: 220px;
+  margin-right: 80px;
+}
+
+.cardListWorkhours {
+  margin-right: 80px;
+  width: 173px;
+}
+
+.workhours {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardListAvialable {
+  margin-right: 60px;
+  width: 140px;
+}
+
+.cardListNum {
+  width: 104px;
+}
+
+.cardFormBtn {
+  margin-left: auto;
+}
+
+.cardFormBtn button {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background-color: #1c62cd;
+  padding: 10px 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/* Элементы старой цены с динамической картинкой перечеркивания */
+.priceOld {
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 44px;
+  color: #000000;
+  opacity: 0.6;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+/* === Адаптивные стили (из исходного media) === */
+
+@media (max-width: 1100px) {
+  .cardFormInputsearch {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 968px) {
+  .cardTabs {
+    flex-direction: column;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .cardTab {
+    padding-bottom: 15px;
+    color: #2f3035;
+    font-size: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .cardTab.tabActive {
+    color: #2f3035;
+    opacity: 1;
+    border-bottom: 1px solid transparent;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 940px) {
+  .cardTopLine label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .cardListItem {
+    display: block;
+  }
+
+  .cardListItem > div {
+    margin-bottom: 15px;
+  }
+
+  .cardListItemtitle {
+    display: none;
+  }
+
+  .cardFormInputsearch,
+  .cardFormInputpickup {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .cardTabs {
+    align-items: flex-start;
+  }
+
+  .cardTabsContent.tabsContentActive {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,319 @@
+/* Изображение фоновой линии для старой цены */
+@value oldLineUrl: "../../assets/images/old-line.svg";
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* .product-card {
+  /* Базовый блок */
+/* } */ 
+
+.product-card__inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 34px 0 80px 0;
+  gap: 15px;
+}
+
+.product-card__img-box {
+  width: 500px;
+  flex-shrink: 0;
+  text-align: center;
+  position: relative;
+}
+
+.product-card__img-box::before {
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.12em;
+  padding: 13px 25px;
+  border-radius: 3px;
+}
+
+.product-card__img {
+  padding-top: 74px;
+  margin-bottom: 17px;
+  max-width: 100%;
+}
+
+.product-card__price-old {
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 44px;
+  color: #000000;
+  opacity: 0.6;
+  background-image: url('../../assets/images/old-line.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+.product-card__price-new {
+  font-family: 'Barlow', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 48px;
+  color: #2F3035;
+  margin-bottom: 17px;
+}
+
+.product-card__link {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #1C62CD;
+  text-decoration: none;
+}
+
+.product-card__content {
+  width: 570px;
+  min-width: 0;
+}
+
+.product-card__title {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #2F3035;
+  margin-bottom: 10px;
+}
+
+.product-card__code {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #2F3035;
+  opacity: 0.6;
+  margin-bottom: 22px;
+}
+
+.product-card__buttons {
+  display: flex;
+  align-items: center;
+  margin-bottom: 51px;
+}
+
+.product-card__icon-favorite {
+  margin-right: 29px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.product-card__icon-comparison {
+  margin-right: 25px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.product-card__tabs {
+  margin-bottom: 25px;
+  max-width: 436px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.product-card__tab {
+  padding-bottom: 5px;
+  margin-right: 34px;
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2F3035;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.product-card__tab.tab--active {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2F3035;
+  opacity: 1;
+  border-bottom: 2px solid #1C62CD;
+}
+
+.product-card__list {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0 6px;
+  border-bottom: 1px solid rgba(47, 48, 53, 0.1);
+  margin: 0;
+}
+
+.product-card__list-title {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2F3035;
+  padding-right: 15px;
+}
+
+.product-card__list-data {
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2F3035;
+  width: 125px;
+  margin: 0;
+}
+
+.product-card__more {
+  margin-top: 20px;
+  margin-bottom: 45px;
+}
+
+.filter-more__btn {
+  background: none;
+  border: none;
+  color: #1C62CD;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.product-card__btn button {
+  padding: 16px 53px;
+  background-color: #1C62CD;
+  font-family: 'SF Pro Display', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.product-card__btn-mobile {
+  display: none;
+}
+
+.product-card__tabs-content {
+  display: none;
+}
+
+.tabs-content--active {
+  display: block;
+}
+
+/* Адаптив (Media Queries) */
+
+/* Планшет: карточка раньше перестраивается в колонку, а табы прокручиваются
+   по горизонтали, чтобы «Наличие в магазинах» всегда оставалось в одну строку
+   и не растягивало карточку */
+@media (max-width: 968px) {
+  .tabs-wrapper {
+    overflow-x: auto;
+  }
+
+  /* Блоки перестраиваются раньше (при 968px), чтобы левый блок с фото
+     не сжимался слишком сильно */
+  .product-card__inner {
+    flex-wrap: wrap;
+  }
+
+  /* Контент «рассыпается» (display: contents), чтобы его части стали flex-
+     элементами .product-card__inner и их можно было переставить через order:
+     заголовок, код товара и кнопки (избранное/сравнение/рейтинг) — НАД
+     изображением, остальное — под ним */
+  .product-card__content {
+    display: contents;
+  }
+
+  .product-card__title {
+    order: 1;
+    width: 100%;
+  }
+
+  .product-card__code {
+    order: 2;
+    width: 100%;
+  }
+
+  .product-card__buttons {
+    order: 3;
+    width: 100%;
+  }
+
+  .product-card__img-box {
+    order: 4;
+    width: 100%;
+  }
+
+  .product-card__tabs {
+    order: 5;
+    width: 100%;
+  }
+
+  .product-card__img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 940px) {
+  .tabs-wrapper {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-card__title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+/* Телефоны: скрываем табы карточки и показываем мобильную кнопку «Купить» */
+@media (max-width: 576px) {
+  .product-card {
+    padding-bottom: 0;
+  }
+
+  .product-card__tabs {
+    display: none;
+  }
+
+  .product-card__btn-mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 380px) {
+  .product-card__btn button {
+    width: 100%;
+  }
+}
