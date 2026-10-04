@@ -7,8 +7,10 @@ import {MainLayout} from "./layouts/MainLayout/MainLayout";
 import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage"
 import ProductCardPage from "./pages/ProductCardPage/ProductCardPage";
-import  NotFoundPage  from "./pages/NotFoundPage/NotFoundPage";
-
+import StoresPage from "./pages/StoresPage/StoresPage";
+import SalesPage from "./pages/SalesPage/SalesPage";
+import DeliveryPaymentsPage from "./pages/DeliveryPaymentsPage/DeliveryPaymentsPage";
+import NotFoundPage  from "./pages/NotFoundPage/NotFoundPage";
 
 // import ScrollToTop from "./components/ScrollToTop";
 
@@ -22,6 +24,9 @@ const App: FC = () => {
         {/* Родительский роут с MainLayout */}
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
+              <Route path={AppRoutes.STORES_PAGE} element={<StoresPage />} />
+              <Route path={AppRoutes.SALES_PAGE} element={<SalesPage />} />
+              <Route path={AppRoutes.DELIVERY_PAYMENTS_PAGE} element={<DeliveryPaymentsPage />} />
               <Route path={AppRoutes.PRODUCTCARD_PAGE} element={<ProductCardPage />} />
               <Route path={AppRoutes.CATALOG_PAGE} element={<CatalogPage/>} />
           </Route>
