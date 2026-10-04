@@ -11,6 +11,11 @@ export const Footer: React.FC = () => {
   // Состояние для открытия/закрытия меню на мобильных устройствах
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
 
+  // Лёгкая валидация формы рассылки
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+
   const toggleSection = (sectionKey: string) => {
     setOpenSections((prev) => ({
       ...prev,
@@ -18,9 +23,44 @@ export const Footer: React.FC = () => {
     }));
   };
 
+  const validateEmail = (value: string): string => {
+    const trimmed = value.trim();
+    if (!trimmed) {
+      return 'Введите e-mail, чтобы получать акции';
+    }
+    // Лёгкая проверка формата: что-то@что-то.домен
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailPattern.test(trimmed)) {
+      return 'Похоже на опечатку — проверьте e-mail';
+    }
+    return '';
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    // Убираем ошибку/сразу прячем успех, пока пользователь печатает
+    if (error) setError('');
+    if (success) setSuccess('');
+  };
+
+  const handleEmailBlur = () => {
+    // Мягко подсказываем только если что-то уже введено
+    if (email.trim()) {
+      setError(validateEmail(email));
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Обработка отправки формы
+    const message = validateEmail(email);
+    if (message) {
+      setError(message);
+      setSuccess('');
+      return;
+    }
+    setError('');
+    setSuccess('Готово! Проверьте почту — скидка уже летит к вам');
+    setEmail('');
   };
 
   return (
@@ -33,17 +73,31 @@ export const Footer: React.FC = () => {
               <h6 className={styles.footerTopTitle}>
                 Подпишитесь на нашу рассылку и узнавайте о акциях быстрее
               </h6>
-              <form className={styles.footerForm} onSubmit={handleSubmit}>
+              <form className={styles.footerForm} onSubmit={handleSubmit} noValidate>
                 <input
-                  className={styles.footerFormInput}
+                  className={`${styles.footerFormInput} ${error ? styles.footerFormInputError : ''}`}
                   type="email"
                   placeholder="Введите ваш e-mail:"
-                  required
+                  value={email}
+                  onChange={handleEmailChange}
+                  onBlur={handleEmailBlur}
+                  aria-invalid={Boolean(error)}
+                  aria-describedby={error ? 'footer-email-error' : success ? 'footer-email-success' : undefined}
                 />
                 <button className={styles.footerFormBtn} type="submit">
                   Отправить
                 </button>
               </form>
+              {error && (
+                <p id="footer-email-error" className={styles.footerFormError} role="alert">
+                  {error}
+                </p>
+              )}
+              {success && !error && (
+                <p id="footer-email-success" className={styles.footerFormSuccess} role="status">
+                  {success}
+                </p>
+              )}
             </div>
 
             {/* Блок Информация */}
@@ -110,31 +164,35 @@ export const Footer: React.FC = () => {
             <div className={`${styles.footerTopItem} ${styles.footerTopSocial}`}>
               <ul className={styles.socialList}>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#">
+                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в Instagram">
                     <img
                       className={styles.socialListItemImg}
                       src={instagramIcon}
                       alt="instagram"
                     />
+                    <span className={styles.socialTip}>Instagram</span>
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#">
+                  <a className={styles.socialListItemLink} href="#" aria-label="Мы во ВКонтакте">
                     <img className={styles.socialListItemImg} src={vkIcon} alt="vk" />
+                    <span className={styles.socialTip}>ВКонтакте</span>
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#">
+                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в Facebook">
                     <img className={styles.socialListItemImg} src={fbIcon} alt="fb" />
+                    <span className={styles.socialTip}>Facebook</span>
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#">
+                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в YouTube">
                     <img
                       className={styles.socialListItemImg}
                       src={youtubeIcon}
                       alt="youtube"
                     />
+                    <span className={styles.socialTip}>YouTube</span>
                   </a>
                 </li>
               </ul>

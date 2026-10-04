@@ -8,26 +8,56 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+  gap: 16px;
   min-height: 122px;
   font-weight: 700;
 }
 
 .header__box {
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.logo {
+  flex: 0 0 auto;
+  margin: 0 8px;
+}
+
+.logo__img {
+  display: block;
+  width: 80px;
+  height: auto;
+  max-width: none;
+}
+
+.menu {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
 }
 
 .header__address {
   position: relative;
-  margin-right: clamp(1.25rem, 0.341rem + 4.55vw, 3.75rem);
-  width: 265px;
+  margin-right: clamp(0.75rem, 0.341rem + 2vw, 3.75rem);
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 265px;
   padding-left: 30px;
   color: rgb(47, 48, 53);
   font-family: "SF Pro Display", sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 0.5vw + 15px, 20px);
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0%;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header__address::before {
@@ -54,23 +84,30 @@
 
 .menu__list {
   display: flex;
-  gap: clamp(1.25rem, 0.568rem + 3.41vw, 3.125rem);
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: clamp(12px, 2vw, 50px);
 }
 
 .menu__item {
   font-weight: 700;
   display: inline-block;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .menu__link {
   color: #2F3035;
   color: rgb(47, 48, 53);
   font-family: "SF Pro Display", sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 1.35vw + 4px, 20px);
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0%;
   transition: color 0.3s ease;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .menu__link:hover {
@@ -252,8 +289,90 @@
 /* ==================== MEDIA QUERIES ==================== */
 
 @media (max-width: 1100px) {
-  .menu__item + .menu__item {
-    padding-left: 20px;
+  .header__top-inner {
+    gap: 12px;
+  }
+
+  /* Места под меню в одну строку уже не хватает:
+     прячем десктоп-список в бургер, чтобы
+     «Доставка и оплата» не переносилась и не наезжала на лого.
+     Пункты остаются доступны в горизонтальной ленте ниже. */
+  .menu__list {
+    display: none;
+  }
+
+  .menu__btn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .menu__btn-line {
+    background: #2F3035;
+    border-radius: 3px;
+    width: 34px;
+    height: 3px;
+    margin: 8px 0;
+  }
+
+  .menu__mobile-linewrapper {
+    margin-bottom: 40px;
+    display: block;
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #2F3035;
+    background: #F0F0F4;
+    padding: 14px 0 14px 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .menu__mobile-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: max-content;
+    min-width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu__mobile-line .menu__item {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .menu__mobile-line .menu__link {
+    white-space: nowrap;
+  }
+
+  .header__bottom {
+    display: none;
+  }
+
+  .menu-categories {
+    margin-bottom: 20px;
+  }
+
+  .logo__img {
+    width: 70px;
+  }
+
+  .header__box {
+    margin-left: auto;
+  }
+
+  .user-list {
+    margin-right: 0;
   }
 }
 
@@ -302,7 +421,24 @@
   }
 
   .menu__mobile-line {
-    width: 450px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: max-content;
+    min-width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu__mobile-line .menu__item {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .menu__mobile-line .menu__link {
+    white-space: nowrap;
   }
 }
 

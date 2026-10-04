@@ -95,6 +95,29 @@
   background-color: #154fb0;
 }
 
+/* Лёгкая валидация формы рассылки */
+.footerFormInputError {
+  outline: 1px solid #e5484d;
+  outline-offset: -1px;
+  background-color: #fff5f5;
+}
+
+.footerFormError {
+  margin: 8px 0 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #e5484d;
+}
+
+.footerFormSuccess {
+  margin: 8px 0 0;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #1c62cd;
+}
+
 /* Списки ссылок */
 .footerList {
   list-style: none;
@@ -114,10 +137,48 @@
   color: #1C62CD;
 }
 
-/* Соцсети */
+/* Соцсети — живые иконки */
+@keyframes socialPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes socialRing {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes socialWiggle {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: -14deg;
+  }
+  50% {
+    rotate: 10deg;
+  }
+  75% {
+    rotate: -6deg;
+  }
+}
+
 .socialList {
   display: flex;
-  gap: 30px;
+  gap: 12px;
   align-items: center;
   height: 100%;
   list-style: none;
@@ -125,14 +186,187 @@
   margin: 0;
 }
 
+.socialListItem {
+  animation: socialPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.socialListItem:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.socialListItem:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.socialListItem:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.socialListItem:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
 .socialListItemLink {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(47, 48, 53, 0.08);
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease;
+  isolation: isolate;
+}
+
+/* Заливка фирменным цветом при наведении */
+.socialListItemLink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #1c62cd;
+  transform: scale(0);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 0;
+}
+
+/* Фирменные цвета каждой сети */
+.socialListItem:nth-child(1) .socialListItemLink::before {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7);
+}
+
+.socialListItem:nth-child(2) .socialListItemLink::before {
+  background: #0077ff;
+}
+
+.socialListItem:nth-child(3) .socialListItemLink::before {
+  background: #1877f2;
+}
+
+.socialListItem:nth-child(4) .socialListItemLink::before {
+  background: #ff0000;
+}
+
+/* Расходящееся кольцо-волна */
+.socialListItemLink::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 2px solid #1c62cd;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.socialListItem:nth-child(1) .socialListItemLink::after {
+  border-color: #ee2a7b;
+}
+
+.socialListItem:nth-child(2) .socialListItemLink::after {
+  border-color: #0077ff;
+}
+
+.socialListItem:nth-child(3) .socialListItemLink::after {
+  border-color: #1877f2;
+}
+
+.socialListItem:nth-child(4) .socialListItemLink::after {
+  border-color: #ff0000;
+}
+
+.socialListItemLink:hover,
+.socialListItemLink:focus-visible {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 10px 20px rgba(28, 98, 205, 0.35);
+  outline: none;
+}
+
+.socialListItemLink:hover::before,
+.socialListItemLink:focus-visible::before {
+  transform: scale(1);
+}
+
+.socialListItemLink:hover::after {
+  animation: socialRing 0.7s ease-out;
+}
+
+.socialListItemLink:active {
+  transform: translateY(-2px) scale(0.96);
 }
 
 .socialListItemImg {
   display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.socialListItemLink:hover .socialListItemImg,
+.socialListItemLink:focus-visible .socialListItemImg {
+  filter: brightness(0) invert(1);
+  animation: socialWiggle 0.5s ease;
+}
+
+/* Всплывающая подсказка */
+.socialTip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 6px) scale(0.9);
+  background: #2f3035;
+  color: #fff;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 7px 11px;
+  border-radius: 7px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 5;
+}
+
+.socialTip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #2f3035;
+}
+
+.socialListItemLink:hover .socialTip,
+.socialListItemLink:focus-visible .socialTip {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialListItem,
+  .socialListItemLink:hover .socialListItemImg,
+  .socialListItemLink:hover::after {
+    animation: none;
+  }
+
+  .socialListItemLink,
+  .socialListItemLink::before,
+  .socialTip {
+    transition: none;
+  }
 }
 
 /* Нижняя часть футера */

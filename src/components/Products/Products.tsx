@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
+import { AppRoutes } from '../../constants/global.constants';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/css';
 import styles from './Products.module.css';
@@ -247,9 +249,9 @@ export const Products: React.FC = () => {
           </div>
 
           <div className={styles.products__more}>
-            <a className={styles["products__more-link"]} href="#">
+            <Link className={styles["products__more-link"]} to={AppRoutes.CATALOG_PAGE}>
               Показать ещё
-            </a>
+            </Link>
           </div>
         </div>
       </div>

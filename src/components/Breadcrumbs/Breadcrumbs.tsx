@@ -11,6 +11,9 @@ interface RouteCrumb {
 const ROUTE_CRUMBS: RouteCrumb[] = [
   { path: AppRoutes.CATALOG_PAGE, title: 'Каталог' },
   { path: AppRoutes.PRODUCTCARD_PAGE, title: 'Карточка товара' },
+  { path: AppRoutes.STORES_PAGE, title: "Магазины"},
+  { path: AppRoutes.SALES_PAGE, title: "Акции"},
+  { path: AppRoutes.DELIVERY_PAYMENTS_PAGE, title: "Доставка и оплата"},
 ];
 
 export default function Breadcrumbs() {

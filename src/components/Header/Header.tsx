@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
+import { AppRoutes } from '../../constants/global.constants';
 import styles from './Header.module.css';
 
 // Импорт всех используемых изображений и иконок
@@ -36,26 +38,26 @@ export const Header: React.FC = () => {
 
               <ul className={styles.menu__list}>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <Link className={styles.menu__link} to={AppRoutes.STORES_PAGE}>
                     Магазины
-                  </a>
+                  </Link>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <Link className={styles.menu__link} to={AppRoutes.SALES_PAGE}>
                     Акции
-                  </a>
+                  </Link>
                 </li>
                 <li className={styles.menu__item}>
-                  <a className={styles.menu__link} href="#">
+                  <Link className={styles.menu__link} to={AppRoutes.DELIVERY_PAYMENTS_PAGE}>
                     Доставка и оплата
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
 
-            <a className={styles.logo} href="#">
+            <Link className={styles.logo} to={AppRoutes.HOME_PAGE}>
               <img className={styles.logo__img} src={logoImg} alt="Логотип" />
-            </a>
+            </Link>
 
             <div className={styles.header__box}>
               <p className={styles.header__address}>Москва, ул. Науки 25</p>
@@ -126,22 +128,34 @@ export const Header: React.FC = () => {
           </a>
         </li>
         <li className={styles['menu-mobile__item']}>
-          <a className={styles['menu-mobile__link']} href="#">
+          <Link
+            className={styles['menu-mobile__link']}
+            to={AppRoutes.STORES_PAGE}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             <img className={styles['menu-mobile__img']} src={homeIcon} alt="Магазины" />
             <p className={styles['menu-mobile__text']}>Магазины</p>
-          </a>
+          </Link>
         </li>
         <li className={styles['menu-mobile__item']}>
-          <a className={styles['menu-mobile__link']} href="#">
+          <Link
+            className={styles['menu-mobile__link']}
+            to={AppRoutes.SALES_PAGE}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             <img className={styles['menu-mobile__img']} src={percentsIcon} alt="Акции" />
             <p className={styles['menu-mobile__text']}>Акции</p>
-          </a>
+          </Link>
         </li>
         <li className={styles['menu-mobile__item']}>
-          <a className={styles['menu-mobile__link']} href="#">
+          <Link
+            className={styles['menu-mobile__link']}
+            to={AppRoutes.DELIVERY_PAYMENTS_PAGE}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             <img className={styles['menu-mobile__img']} src={deliveryIcon} alt="Доставка и оплата" />
             <p className={styles['menu-mobile__text']}>Доставка и оплата</p>
-          </a>
+          </Link>
         </li>
         <li className={styles['menu-mobile__item']}>
           <a className={styles['menu-mobile__link']} href="#">
@@ -189,19 +203,19 @@ export const Header: React.FC = () => {
       <div className={styles['menu__mobile-linewrapper']}>
         <ul className={styles['menu__mobile-line']}>
           <li className={styles.menu__item}>
-            <a className={styles.menu__link} href="#">
+            <Link className={styles.menu__link} to={AppRoutes.STORES_PAGE}>
               Магазины
-            </a>
+            </Link>
           </li>
           <li className={styles.menu__item}>
-            <a className={styles.menu__link} href="#">
+            <Link className={styles.menu__link} to={AppRoutes.SALES_PAGE}>
               Акции
-            </a>
+            </Link>
           </li>
           <li className={styles.menu__item}>
-            <a className={styles.menu__link} href="#">
+            <Link className={styles.menu__link} to={AppRoutes.DELIVERY_PAYMENTS_PAGE}>
               Доставка и оплата
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -210,44 +224,44 @@ export const Header: React.FC = () => {
         <div className="container">
           <ul className={styles['menu-categories']}>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Квадроциклы
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Катера
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Гидроциклы
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Лодки
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Вездеходы
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Снегоходы
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Двигатели
-              </a>
+              </Link>
             </li>
             <li className={styles['menu-categories__item']}>
-              <a className={styles['menu-categories__link']} href="#">
+              <Link className={styles['menu-categories__link']} to={AppRoutes.STORES_PAGE}>
                 Запчасти
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

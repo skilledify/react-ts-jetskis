@@ -1,0 +1,44 @@
+.page { margin-bottom: 90px; }
+.title { font-family: 'SF Pro Display', sans-serif; font-weight: 700; font-size: 30px; line-height: 36px; color: #2f3035; margin-bottom: 12px; }
+.subtitle { font-family: 'SF Pro Display', sans-serif; font-size: 17px; line-height: 24px; color: #6f6f77; max-width: 780px; margin-bottom: 28px; }
+.subtitle strong { color: #2f3035; }
+.hero { display: flex; gap: 24px; background: linear-gradient(120deg, #1c62cd 0%, #0f3f8f 100%); border-radius: 3px; padding: 36px 40px; color: #fff; margin-bottom: 32px; }
+.heroLeft { flex: 1.4; }
+.heroRight { flex: 1; background: #fff; border-radius: 3px; padding: 28px; color: #2f3035; align-self: center; text-align: center; }
+.heroBadge { display: inline-block; background: #fff; color: #1c62cd; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; margin-bottom: 14px; font-family: 'SF Pro Display', sans-serif; }
+.heroTitle { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 32px; line-height: 36px; margin-bottom: 10px; }
+.heroText { font-size: 16px; line-height: 22px; opacity: .92; margin-bottom: 20px; max-width: 560px; font-family: 'SF Pro Display', sans-serif; }
+.timer { display: flex; gap: 10px; margin-bottom: 22px; }
+.timerItem { background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3); border-radius: 3px; min-width: 72px; padding: 10px 8px; text-align: center; }
+.timerItem span { display: block; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 26px; line-height: 28px; }
+.timerItem small { font-size: 12px; opacity: .85; font-family: 'SF Pro Display', sans-serif; }
+.heroActions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btnPrimary { background: #fff; color: #1c62cd; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 16px 30px; border-radius: 3px; font-family: 'SF Pro Display', sans-serif; }
+.btnGhost { border: 1px solid #fff; color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; padding: 16px 30px; border-radius: 3px; font-family: 'SF Pro Display', sans-serif; }
+.heroPriceOld { font-family: 'Barlow', sans-serif; color: #c4c4c4; font-size: 16px; text-decoration: line-through; }
+.heroPriceNew { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 38px; color: #1c62cd; line-height: 42px; }
+.heroNote { font-size: 14px; color: #6f6f77; margin: 6px 0 16px; font-family: 'SF Pro Display', sans-serif; }
+.promoBox { background: #f0f0f4; border-radius: 3px; padding: 14px; font-size: 13px; color: #2f3035; font-family: 'SF Pro Display', sans-serif; }
+.promoBox span { display: block; margin-bottom: 8px; color: #6f6f77; }
+.promoCode { width: 100%; border: 1px dashed #1c62cd; background: #fff; color: #1c62cd; font-weight: 700; padding: 12px; border-radius: 3px; cursor: pointer; font-size: 15px; letter-spacing: .1em; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 44px; }
+.card { border: 1px solid #cdcdcd; border-radius: 3px; padding: 24px; display: flex; flex-direction: column; background: #fff; transition: box-shadow .3s; }
+.card:hover { box-shadow: 3px 3px 20px rgba(50,50,50,.2); }
+.cardAccent { border: 2px solid #1c62cd; }
+.cardTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.badge { background: #1c62cd; color: #fff; font-size: 13px; font-weight: 700; padding: 7px 14px; border-radius: 20px; font-family: 'SF Pro Display', sans-serif; }
+.until { font-size: 13px; color: #6f6f77; font-family: 'SF Pro Display', sans-serif; }
+.cardTitle { font-size: 19px; font-weight: 700; line-height: 23px; margin-bottom: 8px; color: #2f3035; font-family: 'SF Pro Display', sans-serif; }
+.cardText { font-size: 15px; line-height: 21px; color: #55555e; margin-bottom: 14px; font-family: 'SF Pro Display', sans-serif; }
+.prices { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; }
+.old { font-family: 'Barlow', sans-serif; color: #c4c4c4; text-decoration: line-through; font-size: 15px; }
+.new { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 24px; color: #1c62cd; }
+.gift { font-weight: 700; color: #1c62cd; margin-bottom: 16px; font-family: 'SF Pro Display', sans-serif; }
+.cardBtn { margin-top: auto; background: #f0f0f4; border: none; border-radius: 3px; padding: 14px; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; color: #2f3035; font-family: 'SF Pro Display', sans-serif; }
+.cardBtn:hover { background: #1c62cd; color: #fff; }
+.rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; background: #f0f0f4; border-radius: 3px; padding: 30px; }
+.rulesNum { font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 28px; color: #1c62cd; }
+.rulesTitle { font-weight: 700; font-size: 17px; margin: 6px 0; color: #2f3035; font-family: 'SF Pro Display', sans-serif; }
+.rulesText { font-size: 15px; line-height: 21px; color: #55555e; font-family: 'SF Pro Display', sans-serif; }
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } .hero { flex-direction: column; } .heroRight { width: 100%; } .rules { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .title { font-size: 24px; } .grid { grid-template-columns: 1fr; } .hero { padding: 24px 20px; } .heroTitle { font-size: 24px; line-height: 28px; } .page { margin-bottom: 60px; } }
