@@ -172,21 +172,32 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-left: 53px;
   padding-top: 36px;
+  transition: background-color 0.3s ease;
 }
 
 .menu-mobile__img {
   position: absolute;
   left: 11px;
   bottom: 0;
+  transition: filter 0.3s ease;
 }
 
-/* Пункты мобильного меню подсвечиваются акцентным цветом */
+/* Пункты мобильного меню подсвечиваются акцентным цветом:
+   фон самого пункта, текст и иконка становятся белыми */
 .menu-mobile__text {
   transition: color 0.3s ease;
 }
 
+.menu-mobile__link:hover {
+  background-color: #1C62CD;
+}
+
 .menu-mobile__link:hover .menu-mobile__text {
-  color: #1C62CD;
+  color: #ffffff;
+}
+
+.menu-mobile__link:hover .menu-mobile__img {
+  filter: brightness(0) invert(1);
 }
 
 /* Кнопка закрытия мобильного меню — такого же размера, что и burger (34px) */
