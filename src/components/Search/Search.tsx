@@ -65,7 +65,7 @@ export const Search: React.FC = () => {
                 <button
                   className={styles.searchContentBtn}
                   type="submit"
-                  style={{ '--search-icon': `url(${searchIcon})` } as React.CSSProperties}
+                  style={{ '--search-icon': `url("${searchIcon}")` } as React.CSSProperties}
                 >
                   искать
                 </button>

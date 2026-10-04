@@ -35,10 +35,6 @@
 	padding: 5px 22px;
 }
 
-.filterItems button + button {
-	margin-left: 8px;
-}
-
 .filterBtn {
 	display: flex;
 	align-items: center;
@@ -104,7 +100,8 @@
 
 .tabs {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
+	gap: 24px;
 }
 
 .tab {
@@ -166,8 +163,11 @@
 .drop::before {
 	content: '';
 	position: absolute;
-	background-image: var(--icon-arrow-down);
+	/* Прямая ссылка на SVG: надёжнее наследуемой CSS-переменной */
+	background-image: url('../../assets/images/arrow-down.svg');
 	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 	left: 0;
 	bottom: 5px;
 	width: 12px;
@@ -569,11 +569,6 @@
 	width: 100%;
 }
 
-.productWrapperList .hoverText {
-	display: inline-block;
-	left: 50px;
-}
-
 .favoriteBtn {
 	width: 24px;
 	height: 24px;
@@ -582,7 +577,7 @@
 	cursor: pointer;
 	position: absolute;
 	top: 10px;
-	left: 10px;
+	right: 10px;
 	z-index: 2;
 }
 
@@ -606,94 +601,110 @@
 
 .productBasket {
 	position: absolute;
-	top: 10px;
-	right: 10px;
-	z-index: 2;
-	width: 24px;
-	height: 24px;
+	right: 0;
+	bottom: 0;
+	z-index: 5;
+	width: 60px;
+	height: 40px;
 	padding: 0;
-	background: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #1c62cd;
 	border: none;
+	border-radius: 10px 0 0 0;
 	cursor: pointer;
 }
 
 .productBasket img {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 30px;
+	height: 23px;
 }
 
-.notifyLink {
-	display: none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	z-index: 3;
-	padding: 12px;
-	text-align: center;
-	font-size: 14px;
-	color: #ffffff;
-	background-color: #1c62cd;
-	text-decoration: none;
-}
-
-.productWrapper:hover .notifyLink {
-	display: block;
-}
-
+/* Карточка — по свойствам .product-item с других страниц проекта */
 .productItem {
 	position: relative;
-	display: block;
-	padding: 20px;
-	color: #2f3035;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 400px;
+	text-align: center;
+	padding: 52px 20px 31px;
+	border: 1px solid #cdcdcd;
+	border-radius: 3px;
+	transition: all 0.3s;
+	background-color: #ffffff;
 	text-decoration: none;
-	background: #ffffff;
-	border: 1px solid #f0f0f4;
 	height: 100%;
+	color: #1c62cd;
+	font-family: 'SF Pro Display', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 19px;
+	letter-spacing: 0%;
 }
 
+/* Плашка "посмотреть товар" — один в один как на других страницах проекта */
 .hoverText {
-	display: none;
+	padding: 18px 21px;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
 	position: absolute;
-	top: 10px;
+	top: 30%;
 	left: 50%;
 	transform: translateX(-50%);
-	font-size: 12px;
-	color: #c4c4c4;
+	transition: all 0.3s;
+	opacity: 0;
+	white-space: nowrap;
+	color: #2f3035;
+	margin: 0;
+	pointer-events: none;
 }
 
 .productItem:hover .hoverText {
-	display: block;
+	opacity: 1;
 }
 
+/* Одинаковый размер картинки в режимах ПЛИТКА и СПИСОК */
 .productImg {
 	display: block;
-	width: 100%;
-	height: auto;
-	margin-bottom: 15px;
+	width: 228px;
+	max-width: 100%;
+	height: 174px;
+	object-fit: contain;
+	margin: 0 auto 15px;
 }
 
 .productTitle {
 	font-family: 'SF Pro Display', sans-serif;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 19px;
-	margin-bottom: 10px;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21px;
+	text-align: center;
+	color: #2f3035;
+	max-width: 230px;
+	padding: 14px 0 25px;
+	min-height: 44px;
+	margin: 0 auto;
 }
 
 .productPrice {
-	font-family: 'SF Pro Display', sans-serif;
+	font-family: 'Barlow', sans-serif;
+	font-style: normal;
 	font-weight: 700;
-	font-size: 18px;
-	line-height: 22px;
-	margin-bottom: 8px;
+	font-size: 30px;
+	line-height: 36px;
+	text-align: center;
+	color: #2f3035;
+	margin: 0;
 }
 
-.notifyText {
-	font-size: 13px;
-	line-height: 16px;
-	color: #c4c4c4;
+.productItem:hover .productTitle,
+.productItem:hover .productPrice {
+	color: #1c62cd;
 }
 
 /* ---------- Pagination ---------- */
@@ -732,37 +743,46 @@
 
 /* ================= RESPONSIVE (desktop first) ================= */
 
-@media (max-width: 1200px) {
-	.innerList {
-		justify-content: space-around;
+/* --- Сетка товаров: 3 -> 2 колонки, сайдбар ещё виден --- */
+@media (max-width: 1024px) {
+	.productWrapper {
+		flex: 0 0 calc((100% - 30px) / 2);
+		max-width: calc((100% - 30px) / 2);
+	}
+
+	/* Режим "список" всегда во всю ширину (иначе перебивается .productWrapper) */
+	.productWrapperList {
+		flex: 0 0 100%;
+		max-width: 100%;
 	}
 }
 
+/* --- Панель фильтра в столбец, чипы переносятся строками (без горизонтального скролла) --- */
 @media (max-width: 968px) {
-	.filterItemsInner {
-		overflow-x: scroll;
-	}
-
-	.filterItems {
-		width: 1000px;
-	}
-}
-
-@media (max-width: 940px) {
-	.viewBtn {
-		display: none;
+	.filter {
+		display: block;
+		margin-bottom: 35px;
 	}
 
 	.filterBtn {
-		margin-top: 30px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+		margin-top: 20px;
 	}
 
-	.filter {
-		display: block;
+	.filterBtn .viewBtn + .viewBtn {
+		margin-left: 0;
+	}
+
+	.selectItem {
+		margin-right: 0;
 	}
 }
 
-@media (max-width: 640px) {
+/* --- Сайдбар становится выдвижным, сетка -- во всю ширину --- */
+@media (max-width: 768px) {
 	.inner {
 		flex-wrap: wrap;
 	}
@@ -775,24 +795,116 @@
 
 	.asideOpen {
 		display: block;
+		background-color: #ffffff;
+		border: 1px solid #f0f0f4;
+		border-radius: 3px;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+		max-height: calc(100vh - 160px);
+		overflow-y: auto;
+		padding: 0 16px 24px;
+		margin-bottom: 24px;
 	}
 
 	.asideBtn {
 		display: block;
+		border: none;
+		font-family: inherit;
+		font-size: 15px;
 		text-transform: uppercase;
 		font-weight: 700;
 		text-align: center;
 		padding: 15px 0;
 		width: 100%;
-		color: white;
+		color: #ffffff;
 		background-color: #1c62cd;
 		margin-bottom: 30px;
 		cursor: pointer;
+	}
+}
+
+/* --- Мобильные: 1 колонка + компактные отступы --- */
+@media (max-width: 640px) {
+	.title {
+		font-size: 24px;
+		line-height: 28px;
+		margin-bottom: 20px;
+	}
+
+	.filter {
+		margin-bottom: 24px;
+	}
+
+	.filterItems button {
+		padding: 5px 16px;
+	}
+
+	.innerList {
+		gap: 20px;
 	}
 
 	.productWrapper {
 		margin: 0 auto;
 		flex: 0 0 100%;
-		max-width: 320px;
+		width: 100%;
+		max-width: 360px;
+	}
+
+	.productWrapperList {
+		max-width: 100%;
+	}
+
+	.itemDrop {
+		margin: 24px 0;
+	}
+
+	.itemList {
+		margin: 24px 0;
+	}
+
+	.btnChoose {
+		width: 100%;
+		padding: 16px 20px;
+	}
+
+	.pagination {
+		margin-top: 40px;
+	}
+
+	.paginationList {
+		gap: 6px;
+	}
+
+	.paginationItem a {
+		min-width: 32px;
+		height: 32px;
+		padding: 0 6px;
+		font-size: 14px;
+	}
+}
+
+/* --- Очень маленькие экраны (iPhone SE 320px и т.п.) --- */
+@media (max-width: 375px) {
+	.title {
+		font-size: 22px;
+		line-height: 26px;
+	}
+
+	.productWrapper {
+		max-width: 100%;
+	}
+
+	.productItem {
+		padding: 14px;
+	}
+
+	.paginationList {
+		gap: 4px;
+	}
+
+	.paginationItem a {
+		min-width: 28px;
+		height: 28px;
+		padding: 0 4px;
+		font-size: 13px;
 	}
 }

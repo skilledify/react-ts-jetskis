@@ -184,10 +184,10 @@ const Catalog = () => {
 	const [activePage, setActivePage] = useState('1');
 
 	const cssVars = {
-		'--icon-arrow-down': `url(${arrowDownIcon})`,
-		'--icon-checked': `url(${checkedIcon})`,
-		'--icon-heart': `url(${heartOutlineIcon})`,
-		'--icon-heart-filled': `url(${heartFilledIcon})`,
+		'--icon-arrow-down': `url("${arrowDownIcon}")`,
+		'--icon-checked': `url("${checkedIcon}")`,
+		'--icon-heart': `url("${heartOutlineIcon}")`,
+		'--icon-heart-filled': `url("${heartFilledIcon}")`,
 	} as CSSProperties;
 
 	const toggleGroup = (key: string) =>
@@ -353,9 +353,14 @@ const Catalog = () => {
 				</div>
 
 				<div className={styles.inner}>
-					<div className={styles.asideBtn} onClick={() => setIsAsideOpen((prev) => !prev)}>
+					<button
+						type="button"
+						className={styles.asideBtn}
+						onClick={() => setIsAsideOpen((prev) => !prev)}
+						aria-expanded={isAsideOpen}
+					>
 						Фильтры
-					</div>
+					</button>
 
 					<aside className={cx(styles.aside, isAsideOpen && styles.asideOpen)}>
 						<div className={styles.tabs}>
@@ -479,6 +484,8 @@ const Catalog = () => {
 					<div className={styles.innerList}>
 						{PRODUCTS.map((product) => {
 							const isFavorite = favorites.includes(product.id);
+							// "Нет в наличии" — только у некоторых карточек
+							const isAvailable = ![4, 9].includes(product.id);
 							return (
 								<div
 									key={product.id}
@@ -493,18 +500,16 @@ const Catalog = () => {
 										onClick={() => toggleFavorite(product.id)}
 										aria-label="В избранное"
 									/>
-									<button type="button" className={styles.productBasket} aria-label="В корзину">
-										<img src={basketIcon} alt="" />
-									</button>
-									<a className={styles.notifyLink} href="#">
-										<span>Сообщить о поступлении</span>
-									</a>
+									{isAvailable && (
+										<button type="button" className={styles.productBasket} aria-label="В корзину">
+											<img src={basketIcon} alt="" />
+										</button>
+									)}
 									<a className={styles.productItem} href="#">
 										<p className={styles.hoverText}>посмотреть товар</p>
 										<img className={styles.productImg} src={product.img} alt={product.title} />
 										<h4 className={styles.productTitle}>{product.title}</h4>
 										<p className={styles.productPrice}>{product.price}</p>
-										<p className={styles.notifyText}>нет в наличии</p>
 									</a>
 								</div>
 							);

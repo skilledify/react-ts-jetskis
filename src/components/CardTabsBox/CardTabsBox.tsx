@@ -116,7 +116,7 @@ export const CardTabsBox: React.FC = () => {
             <span>Цена со скидкой: </span>
             <span
               className={styles.priceOld}
-              style={{ backgroundImage: `url(${oldLineImg})` }}
+              style={{ backgroundImage: `url("${oldLineImg}")` }}
             >
               1200 ₽
             </span>
@@ -149,7 +149,7 @@ export const CardTabsBox: React.FC = () => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                   style={{
-                    backgroundImage: `url(${searchIconImg})`,
+                    backgroundImage: `url("${searchIconImg}")`,
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'right 12px center',
                     backgroundSize: '16px 16px',

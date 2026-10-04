@@ -89,6 +89,14 @@ export const Header: React.FC = () => {
           isMobileMenuOpen ? styles['menu-mobile__list--active'] : ''
         }`}
       >
+        <li className={styles['menu-mobile__close-item']}>
+          <button
+            type="button"
+            className={styles['menu-mobile__close']}
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label="Закрыть меню"
+          />
+        </li>
         <li className={styles['menu-mobile__item']}>
           <a className={styles['menu-mobile__link']} href="#">
             <img className={styles['menu-mobile__img']} src={userIcon} alt="Войти" />

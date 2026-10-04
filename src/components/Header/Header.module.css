@@ -70,6 +70,11 @@
   font-weight: 700;
   line-height: 24px;
   letter-spacing: 0%;
+  transition: color 0.3s ease;
+}
+
+.menu__link:hover {
+  color: #1C62CD;
 }
 
 .user-list {
@@ -114,7 +119,7 @@
 
 .menu-categories__link:hover {
   font-family: 'SF Pro Display', sans-serif;
-  color: #000;
+  color: #1C62CD;
 }
 
 .menu-categories__link:hover::before {
@@ -173,6 +178,59 @@
   position: absolute;
   left: 11px;
   bottom: 0;
+}
+
+/* Пункты мобильного меню подсвечиваются акцентным цветом */
+.menu-mobile__text {
+  transition: color 0.3s ease;
+}
+
+.menu-mobile__link:hover .menu-mobile__text {
+  color: #1C62CD;
+}
+
+/* Кнопка закрытия мобильного меню — такого же размера, что и burger (34px) */
+.menu-mobile__close-item {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px 4px;
+}
+
+.menu-mobile__close {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-mobile__close::before,
+.menu-mobile__close::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #2F3035;
+  transform-origin: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu-mobile__close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-mobile__close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.menu-mobile__close:hover::before,
+.menu-mobile__close:hover::after {
+  background-color: #1C62CD;
 }
 
 .menu__mobile-linewrapper {

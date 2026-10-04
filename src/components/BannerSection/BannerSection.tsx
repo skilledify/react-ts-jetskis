@@ -41,9 +41,9 @@ export const BannerSection: React.FC = () => {
 
   // Иконки цен через CSS-переменные
   const priceStyle = {
-    '--bg-icon-price': `url(${iconsPrice})`,
-    '--bg-old-line': `url(${oldLine})`,
-    '--bg-icon-price-old': `url(${iconsPriceOld})`,
+    '--bg-icon-price': `url("${iconsPrice}")`,
+    '--bg-old-line': `url("${oldLine}")`,
+    '--bg-icon-price-old': `url("${iconsPriceOld}")`,
   } as React.CSSProperties;
 
   return (
