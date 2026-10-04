@@ -176,3 +176,48 @@ body {
 .page-section {
   margin-bottom: 80px;
 }
+
+/* ==================== SLIDER OVERRIDES (единое поведение) ==================== */
+
+/* Убираем фон (серый кружок) под стрелками навигации */
+.splide .splide__arrow {
+  background: transparent;
+  border-radius: 0;
+  opacity: 1;
+}
+
+.splide .splide__arrow:hover:not(:disabled) {
+  opacity: 0.6;
+}
+
+.splide .splide__arrow:disabled {
+  opacity: 0.3;
+}
+
+/* Пагинация акцентного цвета под карточками */
+.splide .splide__pagination {
+  position: static;
+  margin-top: 24px;
+  padding: 0;
+  gap: 8px;
+}
+
+.splide .splide__pagination__page {
+  width: 9px;
+  height: 9px;
+  margin: 0;
+  background-color: rgba(28, 98, 205, 0.3);
+  opacity: 1;
+}
+
+.splide .splide__pagination__page.is-active {
+  background-color: var(--accent-color);
+  transform: none;
+}
+
+/* Скрываем стрелки навигации на маленьких экранах */
+@media (max-width: 640px) {
+  .splide .splide__arrow {
+    display: none;
+  }
+}

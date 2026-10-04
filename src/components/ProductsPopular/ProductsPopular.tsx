@@ -139,12 +139,13 @@ export const ProductsPopular: React.FC = () => {
                       options={{
                         perPage: 4,
                         gap: '30px',
-                        pagination: false,
+                        pagination: true,
                         arrows: true,
+                        padding: { right: '2px', left: '2px' },
                         breakpoints: {
                           1200: { perPage: 3, gap: '20px' },
                           968: { perPage: 2, gap: '15px' },
-                          640: { perPage: 1 },
+                          640: { perPage: 1, arrows: false },
                         },
                       }}
                       aria-label="product-slider"

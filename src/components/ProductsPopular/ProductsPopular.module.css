@@ -79,12 +79,15 @@
 
 .productItemWrapper {
   position: relative;
-  width: 271px;
+  width: 100%;
+  box-sizing: border-box;
   transition: all 0.5s;
 }
 
 .productItem {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid #CDCDCD;
   border-radius: 3px;
   min-height: 400px;

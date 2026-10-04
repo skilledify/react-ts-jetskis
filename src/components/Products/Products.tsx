@@ -140,12 +140,13 @@ export const Products: React.FC = () => {
                     options={{
                       perPage: 4,
                       gap: "30px",
-                      pagination: false,
+                      pagination: true,
+                      arrows: true,
                       padding: { right: "2px", left: "2px" }, // Запас 2px, чтобы border не срезался по краям
                       breakpoints: {
-                        1300: { perPage: 3 },
-                        968: { perPage: 2 },
-                        576: { perPage: 1 },
+                        1200: { perPage: 3, gap: "20px" },
+                        968: { perPage: 2, gap: "15px" },
+                        640: { perPage: 1, arrows: false },
                       },
                     }}
                     aria-label="products-slider"
