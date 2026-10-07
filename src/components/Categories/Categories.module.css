@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  column-gap: 30px;
 }
 
 .categories__item {
@@ -84,6 +85,8 @@
 
 @media (max-width: 1200px) {
   .categories__inner {
-    justify-content: space-around;
+    /* Не центрируем: карточки прижимаются к левому краю контейнера,
+       как и контент шапки/баннера */
+    justify-content: flex-start;
   }
 }

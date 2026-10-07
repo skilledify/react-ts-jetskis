@@ -69,6 +69,14 @@
 
 .header__bottom {
   margin-bottom: 78px;
+  
+}
+
+/* Мобильная лента меню: скрыта на десктопе,
+   показывается в media-запросах ниже */
+.menu__mobile-linewrapper {
+  display: none;
+
 }
 
 /* .menu {
@@ -127,6 +135,7 @@
   justify-content: space-around;
   align-items: center;
   min-height: 53px;
+   
 }
 
 .menu-categories__link {
@@ -323,15 +332,24 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    text-align: center;
+    text-align: left;
     color: #2F3035;
-    background: #F0F0F4;
-    padding: 14px 0 14px 15px;
+    /* Фон рисует сам .menu__mobile-line — он внутри shared.container,
+       поэтому полоса не шире контент-бокса контейнера */
     overflow-x: auto;
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    /* Скрываем полосу прокрутки для чистоты UI */
+    scrollbar-width: none;
   }
 
-  .menu__mobile-line {
+  .menu__mobile-linewrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Двойной класс — чтобы правило перебивало глобальный ресет
+     `ul[class] { padding: 0 }` из index.css (специфичность 0,1,1) */
+  .menu__mobile-line.menu__mobile-line {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -340,7 +358,8 @@
     min-width: 100%;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 18px;
+    background-color: #F0F0F4;
   }
 
   .menu__mobile-line .menu__item {
@@ -397,11 +416,16 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    text-align: center;
+    text-align: left;
     color: #2F3035;
-    background: #F0F0F4;
-    padding: 14px 0 14px 15px;
+    /* Фон у .menu__mobile-line (внутри контейнера) — см. ниже */
     overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .menu__mobile-linewrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .header__bottom {
@@ -428,7 +452,8 @@
     margin: 8px 0;
   }
 
-  .menu__mobile-line {
+  /* Двойной класс против ресета `ul[class] { padding: 0 }` из index.css */
+  .menu__mobile-line.menu__mobile-line {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -437,7 +462,8 @@
     min-width: 100%;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 18px;
+    background-color: #F0F0F4;
   }
 
   .menu__mobile-line .menu__item {

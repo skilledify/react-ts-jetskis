@@ -239,26 +239,28 @@ export const Header: React.FC = () => {
 
         {/* Горизонтальный скролл меню на мобильных */}
         <div className={styles["menu__mobile-linewrapper"]}>
-          <ul className={styles["menu__mobile-line"]}>
-            <li className={styles.menu__item}>
-              <Link className={styles.menu__link} to={AppRoutes.STORES_PAGE}>
-                Магазины
-              </Link>
-            </li>
-            <li className={styles.menu__item}>
-              <Link className={styles.menu__link} to={AppRoutes.SALES_PAGE}>
-                Акции
-              </Link>
-            </li>
-            <li className={styles.menu__item}>
-              <Link
-                className={styles.menu__link}
-                to={AppRoutes.DELIVERY_PAYMENTS_PAGE}
-              >
-                Доставка и оплата
-              </Link>
-            </li>
-          </ul>
+          <div className={shared.container}>
+            <ul className={styles["menu__mobile-line"]}>
+              <li className={styles.menu__item}>
+                <Link className={styles.menu__link} to={AppRoutes.STORES_PAGE}>
+                  Магазины
+                </Link>
+              </li>
+              <li className={styles.menu__item}>
+                <Link className={styles.menu__link} to={AppRoutes.SALES_PAGE}>
+                  Акции
+                </Link>
+              </li>
+              <li className={styles.menu__item}>
+                <Link
+                  className={styles.menu__link}
+                  to={AppRoutes.DELIVERY_PAYMENTS_PAGE}
+                >
+                  Доставка и оплата
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className={styles.header__bottom}>
