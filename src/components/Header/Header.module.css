@@ -1,8 +1,4 @@
-/* ==================== BASE STYLES ==================== */
 
-/* .header {
-  /* &__top {} */
-/* }  */
 
 .header__top-inner {
   display: flex;
@@ -12,6 +8,7 @@
   gap: 16px;
   min-height: 122px;
   font-weight: 700;
+ 
 }
 
 .header__box {
@@ -374,7 +371,18 @@
   .user-list {
     margin-right: 0;
   }
+
+.page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Предотвращает горизонтальный скролл и вылезание за пределы */
 }
+
+  
+}
+
+
+
 
 @media (max-width: 968px) {
   .menu-categories {
@@ -441,6 +449,13 @@
     white-space: nowrap;
   }
 }
+
+@media (max-width: 640px) {
+  .header__address {
+    display: none;
+  }
+} 
+
 
 @media (max-width: 640px) {
   .header__address {

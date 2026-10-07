@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import shared from '../../styles/shared.module.css';
 import styles from './BannerSection.module.css';
 
 // Импорт изображений из ../../assets/images
@@ -47,8 +48,8 @@ export const BannerSection: React.FC = () => {
   } as React.CSSProperties;
 
   return (
-    <section className={`${styles.bannerSection} page-section`}>
-      <div className="container">
+    <section className={`${styles.bannerSection} ${shared['page-section']}`}>
+      <div className={shared.container}>
         <div className={styles.inner}>
           
           {/* Слайдер баннеров */}

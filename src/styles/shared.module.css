@@ -1,0 +1,65 @@
+/* Общие утилитарные стили проекта.
+   Раньше эти классы были глобальными в index.css — теперь они изолированы
+   как CSS Module: попадают в разметку только там, где компонент их импортирует. */
+
+/* Контейнер контента: центрирует блок и ограничивает ширину */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+/* Отступ снизу у секций страницы */
+.page-section {
+  margin-bottom: 80px;
+}
+
+/* ==================== ПЕРЕОПРЕДЕЛЕНИЯ SPLIDE ====================
+   Селекторы библиотеки глобальные, поэтому обёрнуты в :global(...).
+   Правило: файлы, состоящие только из :global-селекторов, не
+   переживают tree-shaking при bare-import — держим их здесь,
+   т.к. этот модуль импортируют компоненты с привязкой. */
+
+/* Убираем фон (серый кружок) под стрелками навигации */
+:global(.splide .splide__arrow) {
+  background: transparent;
+  border-radius: 0;
+  opacity: 1;
+}
+
+:global(.splide .splide__arrow:hover:not(:disabled)) {
+  opacity: 0.6;
+}
+
+:global(.splide .splide__arrow:disabled) {
+  opacity: 0.3;
+}
+
+/* Пагинация акцентного цвета под карточками */
+:global(.splide .splide__pagination) {
+  position: static;
+  margin-top: 24px;
+  padding: 0;
+  gap: 8px;
+}
+
+:global(.splide .splide__pagination__page) {
+  width: 9px;
+  height: 9px;
+  margin: 0;
+  background-color: rgba(28, 98, 205, 0.3);
+  opacity: 1;
+}
+
+:global(.splide .splide__pagination__page.is-active) {
+  background-color: var(--accent-color);
+  transform: none;
+}
+
+/* Скрываем стрелки навигации на маленьких экранах */
+@media (max-width: 640px) {
+  :global(.splide .splide__arrow) {
+    display: none;
+  }
+}

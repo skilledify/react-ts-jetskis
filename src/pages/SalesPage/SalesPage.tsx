@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { AppRoutes } from '../../constants/global.constants';
 import styles from './SalesPage.module.css';
+import shared from '../../styles/shared.module.css';
 
 interface Promo {
   id: number;
@@ -54,7 +55,7 @@ const SalesPage: React.FC = () => {
     } catch { setCopied(false); }
   };
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${shared.container}`}>
       <h1 className={styles.title}>Акции</h1>
       <p className={styles.subtitle}>Здесь скидки честные, как глубиномер: <strong>без «было 10 млн»</strong>. Ловите момент — техника по акциям разбирается быстрее, чем тает лёд в апреле.</p>
       <div className={styles.hero}>

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { AppRoutes } from '../../constants/global.constants';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/css';
+import shared from '../../styles/shared.module.css';
 import styles from './Products.module.css';
 
 // Импорт изображений товаров
@@ -90,7 +91,7 @@ const PRODUCTS_DATA: Product[] = [
   },
 ];
 
-export const Products: React.FC = () => {
+ const Products: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('products-tab-1');
   const [favorites, setFavorites] = useState<Record<number, boolean>>({});
 
@@ -103,7 +104,7 @@ export const Products: React.FC = () => {
 
   return (
     <section className={styles.products}>
-      <div className="container">
+      <div className={shared.container}>
         <div className={styles.products__inner}>
           <h2 className={styles.products__title}>Популярные товары</h2>
 
@@ -199,13 +200,13 @@ export const Products: React.FC = () => {
                                 </a>
                               )}
 
-                              <a
+                              <Link
                                 className={`${styles["product-item"]} ${
                                   product.isSale
                                     ? styles["product-item--sale"]
                                     : ""
                                 }`}
-                                href="#"
+                                to={AppRoutes.PRODUCTCARD_PAGE}
                               >
                                 <p
                                   className={styles["product-item__hover-text"]}
@@ -236,7 +237,7 @@ export const Products: React.FC = () => {
                                     нет в наличии
                                   </p>
                                 )}
-                              </a>
+                              </Link>
                             </div>
                           </div>
                         </SplideSlide>
@@ -258,3 +259,5 @@ export const Products: React.FC = () => {
     </section>
   );
 };
+
+export default Products;

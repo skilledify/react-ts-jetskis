@@ -1,4 +1,7 @@
 import { useState, type CSSProperties, type ChangeEvent, type ReactNode } from 'react';
+
+
+import shared from '../../styles/shared.module.css';
 import styles from './Catalog.module.css';
 
 import arrowDownIcon from '../../assets/images/arrow-down.svg';
@@ -290,7 +293,7 @@ const Catalog = () => {
 
 	return (
 		<section className={styles.catalog} style={cssVars}>
-			<div className="container">
+			<div className={shared.container}>
 				<h2 className={styles.title}>Гидроциклы</h2>
 
 				<div className={styles.filter}>

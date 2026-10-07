@@ -1,0 +1,15 @@
+/* ==================== LAYOUT ==================== */
+
+/* Обёртка на всю высоту экрана: header прижат к верху,
+   footer — к низу, а контент занимает всё свободное место */
+.appLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Контент растягивается, чтобы footer всегда оставался внизу */
+.mainContent {
+  flex: 1 0 auto;
+}

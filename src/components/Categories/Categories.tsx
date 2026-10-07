@@ -1,4 +1,5 @@
 import React from 'react';
+import shared from '../../styles/shared.module.css';
 import styles from './Categories.module.css';
 
 // Импорт изображений согласно условию (относительно файла компонента)
@@ -28,7 +29,7 @@ const categoriesData: CategoryItem[] = [
 export const Categories: React.FC = () => {
   return (
     <section className={styles.categories}>
-      <div className="container">
+      <div className={shared.container}>
         <div className={styles.categories__inner}>
           {categoriesData.map((item) => (
             <a key={item.id} className={styles.categories__item} href={item.link}>

@@ -3,13 +3,9 @@
   width: 100%;
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px; /* Максимальная ширина вашего контейнера */
-  margin-left: auto;  /* Центрирует контейнер */
-  margin-right: auto;
-  padding: 0;         /* На десктопе отступов нет — картинка от края до края контейнера */
-}
+/* Контейнер берётся из общего src/styles/shared.module.css
+   (shared.container) — как у Header и остальных секций, чтобы края
+   контента совпадали на всех страницах. */
 
 .banner__link {
   display: block;
@@ -21,13 +17,4 @@
   height: auto;
   display: block;
   object-fit: cover;
-}
-
-/* === АДАПТИВ (ПРИ СУЖЕНИИ ЭКРАНА) === */
-
-/* Когда экран становится меньше ширины контейнера (1200px) */
-@media (max-width: 1200px) {
-  .container {
-    padding: 0 15px;  /* Появляются отступы по 15px по бокам */
-  }
 }

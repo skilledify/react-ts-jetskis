@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CardTabsBox.module.css';
+import shared from '../../styles/shared.module.css';
 
 // Импорт изображений согласно заданному пути
 import oldLineImg from '../../assets/images/old-line.svg';
@@ -66,7 +67,7 @@ export const CardTabsBox: React.FC = () => {
   });
 
   return (
-    <div className={styles.cardTabsbox}>
+    <div className={`${styles.cardTabsbox} ${shared.container}`}>
       {/* Навигация табов */}
       <div className={styles.cardTabs}>
         <button

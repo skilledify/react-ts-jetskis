@@ -1,10 +1,22 @@
+/* Общие классы (.container, .page-section и др.) и переопределения Splide
+   перенесены в src/styles/shared.module.css (CSS Module). Здесь остались
+   только базовые ресеты и переменные :root. */
+
 @import "tailwindcss";
 
 
 @import '@splidejs/react-splide/css';
 
-
+/* Акцентный цвет проекта: используется в переопределениях Splide
+   (активная точка пагинации) и других глобальных правилах.
+   :root ниже по комментарию закомментирован целиком — переменная
+   нужна отдельно. */
 :root {
+  --accent-color: #1C62CD;
+}
+
+
+/* :root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -57,8 +69,8 @@
     filter: invert(1) brightness(2);
   }
 }
-
-
+ */
+/* 
 html {
   font-size: 10px;
   box-sizing: border-box;
@@ -67,8 +79,8 @@ html {
  *,
  *::after,
  *::before {
-  box-sizing: inherit;
-}
+box-sizing: border-box;;
+} */
 
 ul[class],
 ol[class] {
@@ -125,7 +137,6 @@ body {
 
 
 body {
-  font-family: 'SF Pro Display', sans-serif;
   color: #2F3035;
   font-family: sans-serif;
   font-size: 20px;
@@ -135,89 +146,8 @@ body {
   min-width: 320px;
 }
 
-.wrapper {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+/* Глобальные классы (.wrapper, .main, .container, .visually-hidden, .title,
+   .page-section) перенесены в src/styles/shared.module.css (CSS Module). */
 
-.main {
-  flex-grow: 1;
-}
-
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.visually-hidden {
-  position: absolute;
-  overflow: hidden;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  width: 1px;
-  height: 1px;
-  clip: rect(0 0 0 0);
-}
-
-.title {
-  color: rgb(47, 48, 53);
-  font-family: "Barlow";
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 30px;
-  letter-spacing: 0%;
-  text-align: left;
-}
-
-.page-section {
-  margin-bottom: 80px;
-}
-
-/* ==================== SLIDER OVERRIDES (единое поведение) ==================== */
-
-/* Убираем фон (серый кружок) под стрелками навигации */
-.splide .splide__arrow {
-  background: transparent;
-  border-radius: 0;
-  opacity: 1;
-}
-
-.splide .splide__arrow:hover:not(:disabled) {
-  opacity: 0.6;
-}
-
-.splide .splide__arrow:disabled {
-  opacity: 0.3;
-}
-
-/* Пагинация акцентного цвета под карточками */
-.splide .splide__pagination {
-  position: static;
-  margin-top: 24px;
-  padding: 0;
-  gap: 8px;
-}
-
-.splide .splide__pagination__page {
-  width: 9px;
-  height: 9px;
-  margin: 0;
-  background-color: rgba(28, 98, 205, 0.3);
-  opacity: 1;
-}
-
-.splide .splide__pagination__page.is-active {
-  background-color: var(--accent-color);
-  transform: none;
-}
-
-/* Скрываем стрелки навигации на маленьких экранах */
-@media (max-width: 640px) {
-  .splide .splide__arrow {
-    display: none;
-  }
-}
+/* Глобальные классы (.wrapper, .main, .container, .visually-hidden, .title,
+   .page-section) перенесены в src/styles/shared.module.css (CSS Module). */

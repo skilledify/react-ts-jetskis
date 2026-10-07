@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
+import { AppRoutes } from '../../constants/global.constants';
+import shared from '../../styles/shared.module.css';
 import styles from './ProductsPopular.module.css';
 
 // Изображения товаров из директории assets
@@ -100,7 +103,7 @@ export const ProductsPopular: React.FC = () => {
 
   return (
     <section className={styles.products}>
-      <div className="container">
+      <div className={shared.container}>
         <div className={styles.productsInner}>
           <h2 className={styles.productsTitle}>С этими товарами покупают</h2>
 
@@ -200,11 +203,11 @@ export const ProductsPopular: React.FC = () => {
                                 )}
 
                                 {/* Основная карточка товара */}
-                                <a
+                                <Link
                                   className={`${styles.productItem} ${
                                     product.isSale ? styles.productItemSale : ''
                                   }`}
-                                  href="#"
+                                  to={AppRoutes.PRODUCTCARD_PAGE}
                                 >
                                   <p className={styles.productItemHoverText}>
                                     посмотреть товар
@@ -223,7 +226,7 @@ export const ProductsPopular: React.FC = () => {
                                   <p className={styles.productItemNotifyText}>
                                     нет в наличии
                                   </p>
-                                </a>
+                                </Link>
                               </div>
                             </div>
                           </SplideSlide>

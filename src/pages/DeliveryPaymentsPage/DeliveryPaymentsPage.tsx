@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router';
 import { AppRoutes } from '../../constants/global.constants';
 import styles from './DeliveryPaymentsPage.module.css';
+import shared from '../../styles/shared.module.css';
 
 const TARIFFS = [
   { zone: 'Москва (внутри МКАД)', tech: 'от 1 500 ₽', parts: 'от 500 ₽', time: '1–2 дня' },
@@ -23,7 +24,7 @@ const DeliveryPaymentsPage: React.FC = () => {
   const [open, setOpen] = useState<number | null>(0);
   const price = city === 'Москва' ? (kind === 'Запчасти' ? '500 ₽' : '1 500 ₽') : city === 'Московская область' ? (kind === 'Запчасти' ? '800 ₽' : '3 000 ₽') : kind === 'Запчасти' ? 'от 1 200 ₽' : 'от 8 000 ₽';
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${shared.container}`}>
       <h1 className={styles.title}>Доставка и оплата</h1>
       <p className={styles.subtitle}>Довезём <strong>аккуратно, как своё</strong>: в жёсткой упаковке, со страховкой и первым запуском. Оплата — как удобно вам: от карты до лизинга для бизнеса.</p>
       <div className={styles.cards}>

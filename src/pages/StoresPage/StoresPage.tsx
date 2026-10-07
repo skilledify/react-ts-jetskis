@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { AppRoutes } from '../../constants/global.constants';
 import styles from './StoresPage.module.css';
+import shared from '../../styles/shared.module.css';
 
 interface Store {
   id: number;
@@ -41,7 +42,7 @@ const StoresPage: React.FC = () => {
   }), [query, city, onlyStock]);
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${shared.container}`}>
       <h1 className={styles.title}>Магазины Drive Moto</h1>
       <p className={styles.subtitle}>
         Приезжайте потрогать, завести и сравнить: <strong>6 магазинов</strong> от Москвы

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import searchIcon from '../../assets/images/search.svg';
+import shared from '../../styles/shared.module.css';
 import styles from './Search.module.css';
 
 interface TabItem {
@@ -31,9 +32,8 @@ export const Search: React.FC = () => {
   };
 
   return (
-    <section className={`${styles.search} page-section`}>
-      {/* Используем 'container' как глобальный класс проекта, если он объявлен в main.css / index.css */}
-      <div className="container">
+    <section className={`${styles.search} ${shared['page-section']}`}>
+      <div className={shared.container}>
         <div className={styles.searchInner}>
           <div className={`${styles.searchTabs} ${styles.tabsWrapper}`}>
             <div className={styles.mobileOverflow}>
