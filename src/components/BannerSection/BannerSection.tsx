@@ -9,7 +9,7 @@ import iconsPrice from '../../assets/images/icons-price.svg';
 import oldLine from '../../assets/images/old-line.svg';
 import iconsPriceOld from '../../assets/images/icons-price-old.svg';
 
-export const BannerSection: React.FC = () => {
+ const BannerSection: React.FC = () => {
   const sliderImages = [
     bannerSliderImg,
     bannerSliderImg,

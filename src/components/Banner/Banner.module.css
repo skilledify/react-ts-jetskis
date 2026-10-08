@@ -3,9 +3,6 @@
   width: 100%;
 }
 
-/* Контейнер берётся из общего src/styles/shared.module.css
-   (shared.container) — как у Header и остальных секций, чтобы края
-   контента совпадали на всех страницах. */
 
 .banner__link {
   display: block;
@@ -13,7 +10,7 @@
 }
 
 .banner__linkImg {
-  width: 100%;        /* Растягивается по ширине контейнера */
+  width: 100%;        
   height: auto;
   display: block;
   object-fit: cover;

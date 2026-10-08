@@ -12,16 +12,16 @@ import SalesPage from "./pages/SalesPage/SalesPage";
 import DeliveryPaymentsPage from "./pages/DeliveryPaymentsPage/DeliveryPaymentsPage";
 import NotFoundPage  from "./pages/NotFoundPage/NotFoundPage";
 
-// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 const App: FC = () => {
   return (
     <>
       <BrowserRouter basename="/react-ts-jetskis">
-        {/* <ScrollToTop/> */}
+        <ScrollToTop/>
           <Routes>
-        {/* Родительский роут с MainLayout */}
+
             <Route element={<MainLayout />}>
               <Route index element={<HomePage />} />
               <Route path={AppRoutes.STORES_PAGE} element={<StoresPage />} />
@@ -31,7 +31,6 @@ const App: FC = () => {
               <Route path={AppRoutes.CATALOG_PAGE} element={<CatalogPage/>} />
           </Route>
 
-        {/* Страница 404 без Header и Footer */}
           <Route path={AppRoutes.NOTFOUND_PAGE} element={<NotFoundPage />} />
       </Routes>
         

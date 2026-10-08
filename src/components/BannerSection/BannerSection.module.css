@@ -1,4 +1,4 @@
-/* BannerSection.module.css */
+
 
 .bannerSection {
   margin-bottom: 40px;
@@ -10,7 +10,7 @@
   gap: 20px;
 }
 
-/* === СЛАЙДЕР === */
+
 .slider {
   max-width: 870px;
   width: 100%;
@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-/* Трек слайдера */
+
 .sliderTrack {
   display: flex;
   width: 100%;
@@ -35,7 +35,7 @@
   will-change: transform;
 }
 
-/* Каждый отдельный слайд занимает строго 100% ширины контейнера */
+
 .sliderItem {
   flex: 0 0 100%;
   width: 100%;
@@ -50,10 +50,10 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  pointer-events: none; /* Запрещает перетаскивание картинки мышкой */
+  pointer-events: none; 
 }
 
-/* Стрелки навигации */
+
 .sliderBtn {
   cursor: pointer;
   position: absolute;
@@ -82,7 +82,7 @@
   right: 20px;
 }
 
-/* Пагинация (точки) */
+
 .slickDots {
   position: absolute;
   bottom: 40px;
@@ -112,7 +112,6 @@
   background-color: #FFF;
 }
 
-/* === БЛОК АКЦИОННОГО ТОВАРА === */
 .saleItem {
   display: flex;
   flex-direction: column;
@@ -175,7 +174,7 @@
   top: 8px;
 }
 
-/* Старая цена (перечеркнутая) */
+
 .saleItemPriceOld {
 font-family: 'Barlow', sans-serif;
   font-style: normal;
@@ -187,10 +186,10 @@ font-family: 'Barlow', sans-serif;
   padding: 2px 5px;
   margin-right: 10px;
   position: relative;
-  /* Убираем стандартное горизонтальное перечеркивание */
+
   text-decoration: none;
 }
-/* Косая черта перечеркивания цены */
+
 .saleItemPriceOld::before {
   content: "";
   position: absolute;
@@ -203,16 +202,7 @@ font-family: 'Barlow', sans-serif;
   transform-origin: center;
   pointer-events: none;
 }
-/* .saleItemPriceOld::after {
-  content: "";
-  position: absolute;
-  background-image: var(--bg-icon-price-old);
-  background-repeat: no-repeat;
-  top: 5px;
-  width: 8px;
-  height: 10px;
-} */
- /* Иконка валюты/рубля (остается без изменений) */
+
 .saleItemPriceOld::after {
   content: "";
   position: absolute;
@@ -265,7 +255,7 @@ font-family: 'Barlow', sans-serif;
   color: #1C62CD;
 }
 
-/* === АДАПТИВНОСТЬ === */
+
 @media (max-width: 1200px) {
   .slider {
     max-width: 600px;
@@ -294,7 +284,7 @@ font-family: 'Barlow', sans-serif;
   }
 }
 
-/* Скрытие стрелок слайдера на экранах <= 640px */
+
 @media (max-width: 640px) {
   .sliderBtn {
     display: none;
