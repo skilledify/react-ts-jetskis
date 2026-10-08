@@ -164,7 +164,7 @@ export const Footer: React.FC = () => {
             <div className={`${styles.footerTopItem} ${styles.footerTopSocial}`}>
               <ul className={styles.socialList}>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в Instagram">
+                  <a className={styles.socialListItemLink} href="https://instagram.com" aria-label="Мы в Instagram">
                     <img
                       className={styles.socialListItemImg}
                       src={instagramIcon}
@@ -174,19 +174,19 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#" aria-label="Мы во ВКонтакте">
+                  <a className={styles.socialListItemLink} href="https://vk.com" aria-label="Мы во ВКонтакте">
                     <img className={styles.socialListItemImg} src={vkIcon} alt="vk" />
                     <span className={styles.socialTip}>ВКонтакте</span>
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в Facebook">
+                  <a className={styles.socialListItemLink} href="https://www.facebook.com" aria-label="Мы в Facebook">
                     <img className={styles.socialListItemImg} src={fbIcon} alt="fb" />
                     <span className={styles.socialTip}>Facebook</span>
                   </a>
                 </li>
                 <li className={styles.socialListItem}>
-                  <a className={styles.socialListItemLink} href="#" aria-label="Мы в YouTube">
+                  <a className={styles.socialListItemLink} href="https://www.youtube.com" aria-label="Мы в YouTube">
                     <img
                       className={styles.socialListItemImg}
                       src={youtubeIcon}
