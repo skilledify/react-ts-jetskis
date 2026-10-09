@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/react-rs-jetskis/',
+  base: '/react-ts-jetskis/',
 });
