@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './CardTabsBox.module.css';
 import shared from '../../styles/shared.module.css';
 
-// Импорт изображений согласно заданному пути
+
 import oldLineImg from '../../assets/images/old-line.svg';
 import searchIconImg from '../../assets/images/search.svg';
 import arrowDownIconImg from '../../assets/images/arrow-down.svg';
@@ -45,7 +45,7 @@ const STORES_DATA: PickupStore[] = [
 
 type TabType = 'about' | 'specs' | 'availability' | 'reviews';
 
-export const CardTabsBox: React.FC = () => {
+ const CardTabsBox: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('availability');
   const [searchQuery, setSearchQuery] = useState('');
   const [isPickupOnly, setIsPickupOnly] = useState(false);
@@ -68,7 +68,7 @@ export const CardTabsBox: React.FC = () => {
 
   return (
     <div className={`${styles.cardTabsbox} ${shared.container}`}>
-      {/* Навигация табов */}
+
       <div className={styles.cardTabs}>
         <button
           className={`${styles.cardTab} ${
@@ -104,9 +104,9 @@ export const CardTabsBox: React.FC = () => {
         </button>
       </div>
 
-      {/* Контейнер содержимого табов */}
+
       <div className={styles.cardTabsContainer}>
-        {/* Таб 1: О товаре */}
+
         <div
           className={`${styles.cardTabsContent} ${
             activeTab === 'about' ? styles.tabsContentActive : ''
@@ -124,7 +124,7 @@ export const CardTabsBox: React.FC = () => {
           </div>
         </div>
 
-        {/* Таб 2: Характеристики */}
+  
         <div
           className={`${styles.cardTabsContent} ${
             activeTab === 'specs' ? styles.tabsContentActive : ''
@@ -133,7 +133,7 @@ export const CardTabsBox: React.FC = () => {
           <p>Технические характеристики и параметры оборудования...</p>
         </div>
 
-        {/* Таб 3: Наличие в магазине */}
+   
         <div
           className={`${styles.cardTabsContent} ${
             activeTab === 'availability' ? styles.tabsContentActive : ''
@@ -170,7 +170,7 @@ export const CardTabsBox: React.FC = () => {
             </form>
           </div>
 
-          {/* Заголовки таблицы */}
+       
           <div className={`${styles.cardListItem} ${styles.cardListItemtitle}`}>
             <div className={styles.cardListAddress}>
               Адрес <img src={arrowDownIconImg} alt="" style={{ width: '10px', marginLeft: '4px' }} />
@@ -181,7 +181,7 @@ export const CardTabsBox: React.FC = () => {
             <div className={styles.cardFormBtn}></div>
           </div>
 
-          {/* Список магазинов */}
+       
           {filteredStores.map((store) => (
             <div key={store.id} className={styles.cardListItem}>
               <div className={styles.cardListAddress}>{store.address}</div>
@@ -210,7 +210,7 @@ export const CardTabsBox: React.FC = () => {
           ))}
         </div>
 
-        {/* Таб 4: Отзывы */}
+  
         <div
           className={`${styles.cardTabsContent} ${
             activeTab === 'reviews' ? styles.tabsContentActive : ''

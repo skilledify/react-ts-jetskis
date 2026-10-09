@@ -2,7 +2,7 @@ import React from 'react';
 import shared from '../../styles/shared.module.css';
 import styles from './Categories.module.css';
 
-// Импорт изображений согласно условию (относительно файла компонента)
+
 import cat1 from '../../assets/images/categories-1.png';
 import cat2 from '../../assets/images/categories-2.png';
 import cat3 from '../../assets/images/categories-3.png';
@@ -26,7 +26,7 @@ const categoriesData: CategoryItem[] = [
   { id: 6, title: 'Двигатели', imgSrc: cat6, link: '#' },
 ];
 
-export const Categories: React.FC = () => {
+  const Categories: React.FC = () => {
   return (
     <section className={styles.categories}>
       <div className={shared.container}>

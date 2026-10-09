@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ProductCard.module.css';
 
-// Импорт изображений согласно вашему требованию (относительный путь: ../../assets/images)
+
 import productImg from '../../assets/images/content/product-card-1.png';
 import heartIcon from '../../assets/images/icon-heart-outline.svg';
 import comparisonIcon from '../../assets/images/comparison.svg';
@@ -28,7 +28,8 @@ const defaultCharacteristics: ProductCharacteristic[] = [
   { title: 'Год выпуска', value: '2018' },
 ];
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+
+const ProductCard: React.FC<ProductCardProps> = ({
   title = 'Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic',
   code = '366666-2',
   oldPrice = '1 200 475 ₽',
@@ -42,7 +43,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <section className={styles['product-card']}>
       <div className={styles.container}>
         <div className={styles['product-card__inner']}>
-          {/* Изображение и цена */}
+
           <div className={`${styles['product-card__img-box']} ${styles['product-item--sale']}`}>
             <img className={styles['product-card__img']} src={productImg} alt={title} />
             <p className={styles['product-card__price-old']}>{oldPrice}</p>
@@ -55,7 +56,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </div>
 
-          {/* Контентная часть */}
+       
           <div className={styles['product-card__content']}>
             <h1 className={styles['product-card__title']}>{title}</h1>
             <p className={styles['product-card__code']}>Код товара: {code}</p>
@@ -70,7 +71,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <a className={styles.stars} href="#" data-rateyo-rating="4"></a>
             </div>
 
-            {/* Табы */}
             <div className={`${styles['tabs-wrapper']} ${styles['product-card__tabs']}`}>
               <div className={styles.tabs}>
                 <a
@@ -100,7 +100,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               </div>
 
               <div className={styles['tabs-container']}>
-                {/* Таб 1: Характеристики */}
+
                 <div
                   className={`${styles['tabs-content']} ${styles['product-card__tabs-content']} ${
                     activeTab === 'characteristics' ? styles['tabs-content--active'] : ''
@@ -125,7 +125,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                   </div>
                 </div>
 
-                {/* Таб 2: Наличие */}
+
                 <div
                   className={`${styles['tabs-content']} ${styles['product-card__tabs-content']} ${
                     activeTab === 'availability' ? styles['tabs-content--active'] : ''

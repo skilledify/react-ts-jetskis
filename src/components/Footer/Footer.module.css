@@ -1,4 +1,4 @@
-/* CSS-модуль компонента Footer */
+
 
 .footer {
   background-color: #F0F0F4;
@@ -47,7 +47,6 @@
   margin: 0;
 }
 
-/* Форма рассылки */
 .footerForm {
   margin-top: 34px;
   display: flex;
@@ -95,7 +94,7 @@
   background-color: #154fb0;
 }
 
-/* Лёгкая валидация формы рассылки */
+
 .footerFormInputError {
   outline: 1px solid #e5484d;
   outline-offset: -1px;
@@ -118,7 +117,7 @@
   color: #1c62cd;
 }
 
-/* Списки ссылок */
+
 .footerList {
   list-style: none;
   padding: 0;
@@ -137,7 +136,7 @@
   color: #1C62CD;
 }
 
-/* Соцсети — живые иконки */
+
 @keyframes socialPopIn {
   from {
     opacity: 0;
@@ -222,7 +221,6 @@
   isolation: isolate;
 }
 
-/* Заливка фирменным цветом при наведении */
 .socialListItemLink::before {
   content: '';
   position: absolute;
@@ -234,7 +232,7 @@
   z-index: 0;
 }
 
-/* Фирменные цвета каждой сети */
+
 .socialListItem:nth-child(1) .socialListItemLink::before {
   background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7);
 }
@@ -251,7 +249,7 @@
   background: #ff0000;
 }
 
-/* Расходящееся кольцо-волна */
+
 .socialListItemLink::after {
   content: '';
   position: absolute;
@@ -316,7 +314,7 @@
   animation: socialWiggle 0.5s ease;
 }
 
-/* Всплывающая подсказка */
+
 .socialTip {
   position: absolute;
   bottom: calc(100% + 10px);
@@ -369,7 +367,7 @@
   }
 }
 
-/* Нижняя часть футера */
+
 .footerBottom {
   padding: 46px 0 22px;
   display: flex;
@@ -390,7 +388,6 @@
   text-decoration: underline;
 }
 
-/* ================= АДАПТИВ ================= */
 
 @media (max-width: 968px) {
   .footerTopInner {

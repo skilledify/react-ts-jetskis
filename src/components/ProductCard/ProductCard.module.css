@@ -1,4 +1,4 @@
-/* Изображение фоновой линии для старой цены */
+
 @value oldLineUrl: "../../assets/images/old-line.svg";
 
 .container {
@@ -7,9 +7,6 @@
   padding: 0 15px;
 }
 
-/* .product-card {
-  /* Базовый блок */
-/* } */ 
 
 .product-card__inner {
   display: flex;

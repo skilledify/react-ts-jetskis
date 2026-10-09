@@ -487,7 +487,7 @@ const Catalog = () => {
 					<div className={styles.innerList}>
 						{PRODUCTS.map((product) => {
 							const isFavorite = favorites.includes(product.id);
-							// "Нет в наличии" — только у некоторых карточек
+
 							const isAvailable = ![4, 9].includes(product.id);
 							return (
 								<div

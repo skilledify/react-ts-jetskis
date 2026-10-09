@@ -1,4 +1,4 @@
-/* Анимация движения волн */
+
 @keyframes waveMove {
   0% {
     transform: translateX(0) translateZ(0) scaleY(1);
@@ -11,7 +11,7 @@
   }
 }
 
-/* Лёгкое покачивание гидроцикла на волнах */
+
 @keyframes jetSkiBob {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -135,7 +135,7 @@
   transform: translateY(-2px);
 }
 
-/* Морские волны на фоне */
+
 .ocean {
   position: absolute;
   bottom: 0;

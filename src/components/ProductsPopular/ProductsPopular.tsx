@@ -6,13 +6,13 @@ import { AppRoutes } from '../../constants/global.constants';
 import shared from '../../styles/shared.module.css';
 import styles from './ProductsPopular.module.css';
 
-// Изображения товаров из директории assets
+
 import popularImg1 from '../../assets/images/content/products-popular-1.png';
 import popularImg2 from '../../assets/images/content/products-popular-2.png';
 import popularImg3 from '../../assets/images/content/products-popular-3.png';
 import popularImg4 from '../../assets/images/content/products-popular-4.png';
 
-// Иконки из директории assets
+
 import heartOutlineIcon from '../../assets/images/icon-heart-outline.svg';
 import heartFilledIcon from '../../assets/images/icon-heart-filled.svg';
 import basketWhiteIcon from '../../assets/images/basket-white.svg';
@@ -91,7 +91,7 @@ const PRODUCTS: Product[] = [
   },
 ];
 
-export const ProductsPopular: React.FC = () => {
+ const ProductsPopular: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('products-popular-tab-1');
   const [favorites, setFavorites] = useState<number[]>([]);
 
@@ -107,7 +107,6 @@ export const ProductsPopular: React.FC = () => {
         <div className={styles.productsInner}>
           <h2 className={styles.productsTitle}>С этими товарами покупают</h2>
 
-          {/* Табы */}
           <div className={styles.tabsWrapper}>
             <div className={`${styles.productsTabs} ${styles.mobileOverflow}`}>
               {TABS.map((tab) => (
@@ -125,7 +124,7 @@ export const ProductsPopular: React.FC = () => {
             </div>
           </div>
 
-          {/* Контент табов */}
+        
           <div className={styles.productsContainer}>
             {TABS.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -166,7 +165,7 @@ export const ProductsPopular: React.FC = () => {
                                     : ''
                                 }`}
                               >
-                                {/* Кнопка Избранное */}
+    
                                 <button
                                   type="button"
                                   className={`${styles.productItemFavorite} ${
@@ -181,7 +180,7 @@ export const ProductsPopular: React.FC = () => {
                                   />
                                 </button>
 
-                                {/* Кнопка Корзины */}
+                        
                                 {product.isAvailable && (
                                   <button
                                     type="button"
@@ -192,7 +191,6 @@ export const ProductsPopular: React.FC = () => {
                                   </button>
                                 )}
 
-                                {/* Ссылка "Сообщить о поступлении" */}
                                 {!product.isAvailable && (
                                   <a
                                     className={styles.productItemNotifyLink}
@@ -202,7 +200,7 @@ export const ProductsPopular: React.FC = () => {
                                   </a>
                                 )}
 
-                                {/* Основная карточка товара */}
+  
                                 <Link
                                   className={`${styles.productItem} ${
                                     product.isSale ? styles.productItemSale : ''

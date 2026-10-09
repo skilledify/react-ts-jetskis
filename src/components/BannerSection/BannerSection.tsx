@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import shared from '../../styles/shared.module.css';
 import styles from './BannerSection.module.css';
 
-// Импорт изображений из ../../assets/images
+
 import bannerSliderImg from '../../assets/images/banner-slider.jpg';
 import saleItemImg from '../../assets/images/content/sale-1.png';
 import iconsPrice from '../../assets/images/icons-price.svg';
@@ -21,7 +21,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 1. Объявляем функции ДО useEffect с помощью useCallback
+
   const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderImages.length);
   }, [sliderImages.length]);
@@ -32,7 +32,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
     );
   }, [sliderImages.length]);
 
-  // 2. Теперь useEffect идет ПОСЛЕ объявления handleNext
+
   useEffect(() => {
     const timer = setInterval(() => {
       handleNext();
@@ -40,7 +40,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
     return () => clearInterval(timer);
   }, [handleNext]);
 
-  // Иконки цен через CSS-переменные
+
   const priceStyle = {
     '--bg-icon-price': `url("${iconsPrice}")`,
     '--bg-old-line': `url("${oldLine}")`,
@@ -51,11 +51,10 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
     <section className={`${styles.bannerSection} ${shared['page-section']}`}>
       <div className={shared.container}>
         <div className={styles.inner}>
-          
-          {/* Слайдер баннеров */}
+
           <div className={styles.slider}>
             
-            {/* Кнопка "Назад" */}
+
             <button
               type="button"
               className={`${styles.sliderBtn} ${styles.sliderBtnPrev}`}
@@ -67,7 +66,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
               </svg>
             </button>
 
-            {/* Кнопка "Вперед" */}
+
             <button
               type="button"
               className={`${styles.sliderBtn} ${styles.sliderBtnNext}`}
@@ -79,7 +78,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
               </svg>
             </button>
 
-            {/* Контейнер слайдов */}
+
             <div className={styles.sliderWrapper}>
               <div
                 className={styles.sliderTrack}
@@ -97,7 +96,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
               </div>
             </div>
 
-            {/* Пагинация */}
+
             <ul className={styles.slickDots}>
               {sliderImages.map((_, index) => (
                 <li
@@ -111,7 +110,7 @@ import iconsPriceOld from '../../assets/images/icons-price-old.svg';
 
           </div>
 
-          {/* Карточка товара */}
+       
           <a className={styles.saleItem} href="#" style={priceStyle}>
             <div className={styles.saleItemTop}>
               <div className={styles.saleItemInfo}>акция</div>

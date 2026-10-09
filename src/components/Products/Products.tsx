@@ -6,13 +6,13 @@ import '@splidejs/splide/css';
 import shared from '../../styles/shared.module.css';
 import styles from './Products.module.css';
 
-// Импорт изображений товаров
+
 import productImg1 from '../../assets/images/content/product-1.png';
 import productImg2 from '../../assets/images/content/product-2.png';
 import productImg3 from '../../assets/images/content/product-3.png';
 import productImg4 from '../../assets/images/content/product-4.png';
 
-// Импорт иконок/SVG при необходимости
+
 import basketIcon from '../../assets/images/basket-white.svg';
 import heartOutlineIcon from '../../assets/images/icon-heart-outline.svg';
 import heartFilledIcon from '../../assets/images/icon-heart-filled.svg';

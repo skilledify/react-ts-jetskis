@@ -1,4 +1,4 @@
-/* Основная секция и вкладки */
+
 .products {
   margin-bottom: 86px;
 }
@@ -66,7 +66,7 @@
   display: block;
 }
 
-/* Слайдер и карточки */
+
 .productSlider {
   max-width: 1200px;
   width: 100%;
@@ -211,7 +211,7 @@
   opacity: 1;
 }
 
-/* Флаг SALE */
+
 .productItemSale::before {
   content: "SALE";
   position: absolute;
@@ -230,7 +230,7 @@
   z-index: 2;
 }
 
-/* Состояние "Нет в наличии" */
+
 .productItemNotAvailable .productItemPrice {
   display: none;
 }
@@ -286,7 +286,7 @@
   padding-bottom: 13px;
 }
 
-/* Кнопка "Показать еще" */
+
 .productsMore {
   text-align: center;
 }
@@ -307,7 +307,7 @@
   display: inline-block;
 }
 
-/* Кастомные стрелки слайдера */
+
 .arrowCustom {
   background: transparent;
   border: none;
@@ -318,7 +318,7 @@
   justify-content: center;
 }
 
-/* Медиазапросы */
+
 @media (max-width: 1300px) {
   .productsMore {
     margin-top: 120px;

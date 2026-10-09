@@ -1,4 +1,4 @@
-// src/components/Breadcrumbs/Breadcrumbs.tsx
+
 import { useLocation, Link, matchPath } from 'react-router';
 import { AppRoutes } from '../../constants/global.constants';
 import styles from './Breadcrumbs.module.css';
@@ -20,7 +20,7 @@ export default function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(Boolean);
 
-  // На «Главной» крошки скрыты
+ 
   if (pathnames.length === 0) {
     return null;
   }

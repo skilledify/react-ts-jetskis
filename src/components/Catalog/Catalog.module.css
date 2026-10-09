@@ -10,7 +10,6 @@
 	margin-bottom: 26px;
 }
 
-/* ---------- Top filter bar ---------- */
 
 .filter {
 	display: flex;
@@ -70,7 +69,6 @@
 	background-color: transparent;
 }
 
-/* ---------- Layout ---------- */
 
 .inner {
 	display: flex;
@@ -96,7 +94,7 @@
 	align-content: flex-start;
 }
 
-/* ---------- Tabs ---------- */
+
 
 .tabs {
 	display: flex;
@@ -128,7 +126,7 @@
 	font-weight: 700;
 }
 
-/* ---------- Filter form ---------- */
+
 
 .list {
 	list-style: none;
@@ -183,7 +181,6 @@
 	transition: transform 0.3s ease;
 }
 
-/* Accordion panel: animates height 0 -> auto */
 .panel {
 	display: grid;
 	grid-template-rows: 0fr;
@@ -220,7 +217,7 @@
 	cursor: pointer;
 }
 
-/* Custom checkbox / radio (replaces jQuery Form Styler) */
+
 
 .control {
 	appearance: none;
@@ -247,7 +244,7 @@
 	background-size: 8px 6px;
 }
 
-/* ---------- Price range ---------- */
+
 
 .range {
 	position: relative;
@@ -344,7 +341,7 @@
 	text-decoration: none;
 }
 
-/* ---------- Selects list ---------- */
+
 
 .itemList {
 	margin: 46px 0 40px;
@@ -392,7 +389,7 @@
 	cursor: pointer;
 }
 
-/* ---------- Show more / search ---------- */
+
 
 .more {
 	width: 100%;
@@ -433,7 +430,7 @@
 	color: #bdbec2;
 }
 
-/* ---------- Badge checkboxes (SALE / NEW / HIT / ДИЛЕР) ---------- */
+
 
 .badgeGroup .content {
 	flex-wrap: nowrap;
@@ -486,7 +483,7 @@
 	pointer-events: none;
 }
 
-/* ---------- Buttons ---------- */
+
 
 .itemBtn {
 	text-align: center;
@@ -555,7 +552,7 @@
 	cursor: pointer;
 }
 
-/* ---------- Product card ---------- */
+
 
 .productWrapper {
 	position: relative;
@@ -622,7 +619,7 @@
 	height: 23px;
 }
 
-/* Карточка — по свойствам .product-item с других страниц проекта */
+
 .productItem {
 	position: relative;
 	display: flex;
@@ -645,7 +642,7 @@
 	letter-spacing: 0%;
 }
 
-/* Плашка "посмотреть товар" — один в один как на других страницах проекта */
+
 .hoverText {
 	padding: 18px 21px;
 	background-color: rgba(255, 255, 255, 0.9);
@@ -667,7 +664,6 @@
 	opacity: 1;
 }
 
-/* Одинаковый размер картинки в режимах ПЛИТКА и СПИСОК */
 .productImg {
 	display: block;
 	width: 228px;
@@ -707,7 +703,7 @@
 	color: #1c62cd;
 }
 
-/* ---------- Pagination ---------- */
+
 
 .pagination {
 	margin-top: 50px;
@@ -741,23 +737,21 @@
 	border-color: #1c62cd;
 }
 
-/* ================= RESPONSIVE (desktop first) ================= */
 
-/* --- Сетка товаров: 3 -> 2 колонки, сайдбар ещё виден --- */
 @media (max-width: 1024px) {
 	.productWrapper {
 		flex: 0 0 calc((100% - 30px) / 2);
 		max-width: calc((100% - 30px) / 2);
 	}
 
-	/* Режим "список" всегда во всю ширину (иначе перебивается .productWrapper) */
+
 	.productWrapperList {
 		flex: 0 0 100%;
 		max-width: 100%;
 	}
 }
 
-/* --- Панель фильтра в столбец, чипы переносятся строками (без горизонтального скролла) --- */
+
 @media (max-width: 968px) {
 	.filter {
 		display: block;
@@ -781,7 +775,6 @@
 	}
 }
 
-/* --- Сайдбар становится выдвижным, сетка -- во всю ширину --- */
 @media (max-width: 768px) {
 	.inner {
 		flex-wrap: wrap;
@@ -821,13 +814,13 @@
 		cursor: pointer;
 	}
 
-	/* Кнопки переключения вида "Плитка" / "Список" на мобильных скрываются */
+	
 	.filterBtn .viewBtn {
 		display: none;
 	}
 }
 
-/* --- Мобильные: 1 колонка + компактные отступы --- */
+
 @media (max-width: 640px) {
 	.title {
 		font-size: 24px;
@@ -887,7 +880,7 @@
 	}
 }
 
-/* --- Очень маленькие экраны (iPhone SE 320px и т.п.) --- */
+
 @media (max-width: 375px) {
 	.title {
 		font-size: 22px;

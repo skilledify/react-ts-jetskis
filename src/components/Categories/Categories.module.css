@@ -1,6 +1,3 @@
-/* .categories {
-  /* Базовые стили для секции */
-/* }  */
 
 .categories__inner {
   display: flex;
@@ -81,12 +78,11 @@
   height: auto;
 }
 
-/* === Адаптивные стили (Media Queries) === */
+
 
 @media (max-width: 1200px) {
   .categories__inner {
-    /* Не центрируем: карточки прижимаются к левому краю контейнера,
-       как и контент шапки/баннера */
+
     justify-content: flex-start;
   }
 }

@@ -4,7 +4,7 @@ import Categories from "../../components/Categories/Categories"
 import Products from "../../components/Products/Products"
 import ProductsPopular from "../../components/ProductsPopular/ProductsPopular"
 import Search from "../../components/Search/Search"
-// import styles from '../../components/Header/Header.module.css'
+
 
 
 

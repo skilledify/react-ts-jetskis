@@ -1,4 +1,4 @@
-/* CardTabsBox.module.css */
+
 
 .cardTabsbox {
   margin-bottom: 100px;
@@ -160,7 +160,7 @@
   text-transform: uppercase;
 }
 
-/* Элементы старой цены с динамической картинкой перечеркивания */
+
 .priceOld {
   font-family: 'Barlow', sans-serif;
   font-style: normal;
@@ -174,7 +174,7 @@
   display: inline-block;
 }
 
-/* === Адаптивные стили (из исходного media) === */
+
 
 @media (max-width: 1100px) {
   .cardFormInputsearch {

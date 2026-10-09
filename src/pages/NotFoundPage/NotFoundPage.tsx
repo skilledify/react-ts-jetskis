@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './NotFoundPage.module.css';
 
-// SVG-иконка гидроцикла
 const JetSkiIcon: React.FC<{ size?: number }> = ({ size = 64 }) => (
   <svg
     width={size}
@@ -13,7 +12,7 @@ const JetSkiIcon: React.FC<{ size?: number }> = ({ size = 64 }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    {/* Корпус и гидродинамические линии */}
+
     <path d="M2 16c2 1 4 1 6 0 3-1.5 5-1.5 8 0 2 1 4 1 6 0" />
     <path d="M3 13l3.5-6.5C7 5.5 8 5 9.5 5H14l3 4 4 1-2 3H3z" />
     <path d="M13 5l2-3h3" />
@@ -21,7 +20,7 @@ const JetSkiIcon: React.FC<{ size?: number }> = ({ size = 64 }) => (
   </svg>
 );
 
-export const NotFoundPage: React.FC = () => {
+ const NotFoundPage: React.FC = () => {
   const handleGoBack = () => {
     if (window.history.length > 1) {
       window.history.back();
@@ -60,7 +59,7 @@ export const NotFoundPage: React.FC = () => {
         </div>
       </main>
 
-      {/* Фоловый морской эффект */}
+
       <div className={styles.ocean} aria-hidden="true">
         <div className={`${styles.wave} ${styles.wave1}`} />
         <div className={`${styles.wave} ${styles.wave2}`} />

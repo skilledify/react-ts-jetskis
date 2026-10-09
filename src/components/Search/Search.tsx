@@ -15,7 +15,7 @@ const TABS: TabItem[] = [
   { id: 'tab-3', label: 'Поиск по названию товара', placeholder: 'Введите название товара' },
 ];
 
-export const Search: React.FC = () => {
+const Search: React.FC = () => {
   const [activeTabId, setActiveTabId] = useState<string>('tab-2');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
