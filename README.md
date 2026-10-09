@@ -67,7 +67,7 @@
 
 
 # Клонирование репозитория
-git clone [https://github.com/](https://github.com/)skilledify/react-ts-jetskis.git
+git clone https://github.com/skilledify/react-ts-jetskis.git
 
 # Переход в папку проекта
 cd react-ts-jetskis
